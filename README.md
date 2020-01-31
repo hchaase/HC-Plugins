@@ -1,4 +1,4 @@
-# TW5-NewTaskHere
-A plugin for Tiddlywiki 5 that ads a button to make a new task tiddler taged with the current tiddler.
+# HC plugins
+Here you can see my different plugins for Tiddlywiki
 
-Get it here: https://hchaase.github.io/TW5-NewTaskHere/
+Demo is here: https://hchaase.github.io/HC-plugins/
