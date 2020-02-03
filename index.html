@@ -137,6 +137,8 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
+
 <li>$:/config/RelinkOnRename</li>
 
 <li>$:/core</li>
@@ -152,10 +154,6 @@ Error message and password prompt
 <li>$:/plugins/HCHaase/toc_counting/readme</li>
 
 <li>$:/plugins/HCHaase/TOCgeneric</li>
-
-<li>$:/plugins/HCHaase/TOCgeneric/state</li>
-
-<li>$:/plugins/HCHaase/TOCgeneric/state-listed</li>
 
 <li>$:/SiteSubtitle</li>
 
@@ -182,6 +180,8 @@ Error message and password prompt
 <li>$:/state/tab-1749438307</li>
 
 <li>$:/state/tab/sidebar--595412856</li>
+
+<li>$:/state/toc/Plugins-TOC-Generic Introduction--429161835</li>
 
 <li>$:/state/toc/TableOfContents-Introduction--118161433</li>
 
@@ -217,6 +217,8 @@ Error message and password prompt
 
 <li>TOC-Generic Introduction</li>
 
+<li>TOC-Generic-changelog</li>
+
 <li>Trashbin-mod</li>
 
 </ul>
@@ -229,6 +231,9 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20200203124853709" modified="20200203124853709" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
+<pre>show</pre>
+</div>
 <div created="20200131141250848" modified="20200131141250848" title="$:/config/RelinkOnRename">
 <pre>yes</pre>
 </div>
@@ -9161,7 +9166,7 @@ It can be toggled on or of in the settings (or below).
 #I would like to expand this to lists as well.
 # I would also like to add an extra count of sub-sub-tiddlers</pre>
 </div>
-<div author="HC Haase" core-version="5.1.21" created="20200127075224438" creator="HC Haase" description="TOC Generic - adds extended TOC to the bottom of tiddlers" list="readme" modified="20200131100228892" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/TOCgeneric" type="application/json" version="1.2.5">
+<div author="HC Haase" core-version="5.1.21" created="20200127075224438" creator="HC Haase" description="TOC Generic - adds extended TOC to the bottom of tiddlers" list="readme" modified="20200131100228892" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/TOCgeneric" type="application/json" version="1.2.6">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate&quot;: {
@@ -9190,21 +9195,21 @@ It can be toggled on or of in the settings (or below).
             &quot;created&quot;: &quot;20200130191912885&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
             &quot;text&quot;: &quot;&quot;,
-            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;,
+            &quot;type&quot;: &quot;application/json&quot;,
             &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/state&quot;,
             &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131100354132&quot;
+            &quot;modified&quot;: &quot;20200203124415340&quot;
         },
         &quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks&quot;: {
             &quot;created&quot;: &quot;20200131081324418&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
             &quot;text&quot;: &quot;&quot;,
-            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;,
+            &quot;type&quot;: &quot;application/json&quot;,
             &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks&quot;,
             &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131100406126&quot;
+            &quot;modified&quot;: &quot;20200203124509738&quot;
         },
         &quot;$:/plugins/HCHaase/TOCgeneric/state-list&quot;: {
             &quot;created&quot;: &quot;20200131081335932&quot;,
@@ -9213,8 +9218,8 @@ It can be toggled on or of in the settings (or below).
             &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/state-list&quot;,
             &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131100419487&quot;,
-            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;
+            &quot;modified&quot;: &quot;20200203124428887&quot;,
+            &quot;type&quot;: &quot;application/json&quot;
         },
         &quot;$:/plugins/HCHaase/TOCgeneric/state-listed&quot;: {
             &quot;created&quot;: &quot;20200131081344288&quot;,
@@ -9223,30 +9228,21 @@ It can be toggled on or of in the settings (or below).
             &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/state-listed&quot;,
             &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131100428843&quot;,
-            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;
+            &quot;modified&quot;: &quot;20200203124440878&quot;,
+            &quot;type&quot;: &quot;application/json&quot;
         },
         &quot;$:/plugins/HCHaase/TOCgeneric/state-tag&quot;: {
             &quot;created&quot;: &quot;20200131081313347&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
             &quot;text&quot;: &quot;&quot;,
-            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;,
+            &quot;type&quot;: &quot;application/json&quot;,
             &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/state-tag&quot;,
             &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131100439599&quot;
+            &quot;modified&quot;: &quot;20200203124455278&quot;
         }
     }
 }</pre>
-</div>
-<div created="20200130191912885" creator="HC Haase" modified="20200131142806443" modifier="HC Haase" tags="$:/plugins/HCHaase/TOCgeneric" title="$:/plugins/HCHaase/TOCgeneric/state" type="application/x-tiddler-dictionary">
-<pre>Introduction: show
-plugins: show
-Plugins: hide
-test-tiddler1: show</pre>
-</div>
-<div created="20200131081344288" creator="HC Haase" modified="20200131141145264" modifier="HC Haase" tags="$:/plugins/HCHaase/TOCgeneric" title="$:/plugins/HCHaase/TOCgeneric/state-listed" type="application/x-tiddler-dictionary">
-<pre>Plugins: show</pre>
 </div>
 <div created="20190611094730176" modified="20200131140744103" title="$:/SiteSubtitle">
 <pre>Plugins for TW5</pre>
@@ -9284,13 +9280,16 @@ test-tiddler1: show</pre>
 <div created="20190611095213749" modified="20200131141618011" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
-<div created="20190611094656338" modified="20200131142800102" title="$:/state/tab/sidebar--595412856">
+<div created="20190611094656338" modified="20200203125640172" title="$:/state/tab/sidebar--595412856">
 <pre>TableOfContents</pre>
+</div>
+<div created="20200203132243375" modified="20200203132245495" title="$:/state/toc/Plugins-TOC-Generic Introduction--429161835">
+<pre>close</pre>
 </div>
 <div created="20200131140659990" modified="20200131140702516" title="$:/state/toc/TableOfContents-Introduction--118161433">
 <pre>close</pre>
 </div>
-<div created="20200131142804179" list="Introduction" modified="20200131142818109" title="$:/StoryList">
+<div list="Introduction" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9306,7 +9305,7 @@ test-tiddler1: show</pre>
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///C:/Users/hch/Downloads/tiddlywiki.html&quot;
+            &quot;text&quot;: &quot;file:///C:/Users/hch/Nextcloud/Hctw/index.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
@@ -9326,7 +9325,7 @@ test-tiddler1: show</pre>
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/C:/Users/hch/Downloads/tiddlywiki.html&quot;
+            &quot;text&quot;: &quot;/C:/Users/hch/Nextcloud/Hctw/index.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -9338,11 +9337,11 @@ test-tiddler1: show</pre>
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         }
     }
 }</pre>
@@ -9514,17 +9513,55 @@ please add feedback /bugs in the threat in [[TW google groups|https://groups.goo
 
 I dont know if I Have done this in a optimal way so please let me know if you know a better way to do this. </pre>
 </div>
-<div created="20200131141557402" modified="20200131142243783" tags="Plugins" title="TOC-Generic Introduction">
+<div created="20200131141557402" modified="20200203132202460" tags="Plugins" title="TOC-Generic Introduction">
 <pre>This plugin puts a table of contents, backlinks, list and listed at the button of every tiddler. Look for the text `References `at the button of tiddlers and click it.
 
 It is good to explore connection and I also use it instead of table of content macros in overview tiddlers.
 
 !!! Instalation
+
+Newest version: {{$:/plugins/HCHaase/TOCgeneric!!version}}
+
 drag this link to your wiki: [[$:/plugins/HCHaase/TOCgeneric]]
+
+''NB: If upgrading, you have to manually delte the tiddlers:''
+
+* $:/plugins/HCHaase/TOCgeneric/state
+* $:/plugins/HCHaase/TOCgeneric/state-tag
+* $:/plugins/HCHaase/TOCgeneric/state-backlinks
+* $:/plugins/HCHaase/TOCgeneric/state-list
+* $:/plugins/HCHaase/TOCgeneric/state-listed
+
+
 
 ---
 
-{{$:/plugins/HCHaase/TOCgeneric/readme}}</pre>
+{{$:/plugins/HCHaase/TOCgeneric/readme}}
+
+
+---
+
+!!! Changelog
+
+{{TOC-Generic-changelog}}</pre>
+</div>
+<div created="20200203125209497" modified="20200203125549130" tags="" title="TOC-Generic-changelog">
+<pre>2020/02/03 - v. 1.2.6
+
+* [FIX] tiddlers with colon: in title can now toggle the view of lists
+
+2020/01/31 - v. 1.2.5
+
+* [New] new default hide/show icon is set to text and use the arrows used in the normal TOC to keep it consistent with TW (can be changed by user)
+* [New] big one: all &quot;sub&quot; headings (tags, backlinks, list and listed) can be folded/hidden by clicking on them
+* [New] the reveal status for the general hide/show and for the sub-lists are tiddler specific and remembered  (stored in a data tiddler)
+* [New] position in viewtemplate is set in the plugin viewtemplate by a list-after field.
+ 
+
+2020/01/27
+
+* [Fix] the hide button no longer appear on tiddlers with nothing to show.
+* [New] option to change icon/text of buttons in the readme.</pre>
 </div>
 <div created="20200131142546398" modified="20200131142742300" tags="Plugins" title="Trashbin-mod">
 <pre>see [[https://hchaase.github.io/TW-Trashbin-mod/]]</pre>
