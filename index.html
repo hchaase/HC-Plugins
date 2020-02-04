@@ -189,6 +189,8 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/search</li>
+
 <li>$:/themes/tiddlywiki/snowwhite</li>
 
 <li>$:/themes/tiddlywiki/vanilla</li>
@@ -216,8 +218,6 @@ Error message and password prompt
 <li>TOC-Counting Introduction</li>
 
 <li>TOC-Generic Introduction</li>
-
-<li>TOC-Generic-changelog</li>
 
 <li>Trashbin-mod</li>
 
@@ -9166,31 +9166,9 @@ It can be toggled on or of in the settings (or below).
 #I would like to expand this to lists as well.
 # I would also like to add an extra count of sub-sub-tiddlers</pre>
 </div>
-<div author="HC Haase" core-version="5.1.21" created="20200127075224438" creator="HC Haase" description="TOC Generic - adds extended TOC to the bottom of tiddlers" list="readme" modified="20200131100228892" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/TOCgeneric" type="application/json" version="1.2.6">
+<div author="HC Haase" core-version="5.1.21" created="20200127075224438" creator="HC Haase" description="TOC Generic - adds extended TOC to the bottom of tiddlers" list="readme" modified="20200204092927262" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/TOCgeneric" type="application/json" version="1.2.7">
 <pre>{
     &quot;tiddlers&quot;: {
-        &quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate&quot;: {
-            &quot;created&quot;: &quot;20200122152834095&quot;,
-            &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;text&quot;: &quot;\n&lt;!-- show a 'show toc' button' if tags OR backlinks OR list OR listed is present for tiddler--&gt;\n&lt;$list filter='[tag&lt;currentTiddler&gt;] [all[current]backlinks[]] [list{!!title}] [all[current]listed[]!is[system]] +[limit[1]]'  variable=null&gt;\n\n&lt;!-- show button --&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n&lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt;  setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show TOC/references\&quot;&gt;{{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!button_reveal}}&lt;/$button&gt;\n\n&lt;/$reveal&gt;\n\n&lt;!-- reveal toc and more --&gt;\n&lt;$reveal type=\&quot;match\&quot;  stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n\n\n&lt;!-- hide button  --&gt;\n&lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide TOC/references\&quot;&gt;{{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!button_hide}}&lt;/$button&gt;\n\n\n&lt;!-- -----------------------references and toc ------------------------------------ --&gt;\n\n&lt;!-- tags heading count and toc --&gt;\n&lt;!-- hide tags --&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt; \n  &lt;$list filter='[tag&lt;currentTiddler&gt;limit[1]]'  variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide tag references\&quot;&gt;\n       {{$:/core/images/down-arrow}}\n   &lt;$count filter='[tag&lt;currentTiddler&gt;]'/&gt; Tagged with ''&lt;&lt;currentTiddler&gt;&gt;''\n&lt;/$button&gt; \n    &lt;br&gt;\n  &lt;/$list&gt;\n  &lt;$macrocall $name=\&quot;toc-selective-expandable\&quot; tag=&lt;&lt;currentTiddler&gt;&gt; sort=\&quot;sort[title]\&quot; /&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden tags --&gt;\n&lt;$reveal type=\&quot;match\&quot;  stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt; \n &lt;$list filter='[tag&lt;currentTiddler&gt;limit[1]]'  variable=null&gt;\n  &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt;  setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show tag references\&quot;&gt;\n     {{$:/core/images/right-arrow}}  \n   &lt;$count filter='[tag&lt;currentTiddler&gt;]'/&gt; Tagged with ''&lt;&lt;currentTiddler&gt;&gt;'' \n  &lt;/$button&gt;\n    &lt;br&gt;\n  &lt;/$list&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- backlinks heading count and toc--&gt;\n&lt;$reveal  type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n   &lt;$list filter='[all[current]backlinks[]limit[1]]' variable=null&gt;\n &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide backlink references\&quot;&gt;\n   {{$:/core/images/down-arrow}}  \n   &lt;$count filter='[all[current]backlinks[]]'/&gt; Links to ''&lt;&lt;currentTiddler&gt;&gt;''\n&lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;&lt;list-links filter:\&quot;[all[current]backlinks[]]\&quot; &gt;&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden links--&gt;\n&lt;$reveal type=\&quot;match\&quot;  stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[all[current]backlinks[]limit[1]]' variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show link references\&quot;&gt;\n       {{$:/core/images/right-arrow}}  \n    &lt;$count filter='[all[current]backlinks[]]'/&gt; Links to ''&lt;&lt;currentTiddler&gt;&gt;'' \n   &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n\n\n&lt;!-- list fields in this tiddler heading count and toc--&gt;\n&lt;$reveal type=\&quot;nomatch\&quot;stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[list{!!title}limit[1]]' variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt;  setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide list references\&quot;&gt;\n     {{$:/core/images/down-arrow}}  \n    ''&lt;&lt;currentTiddler&gt;&gt;'' is listing \n&lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;&lt;list-links filter:\&quot;[list{!!title}]\&quot;&gt;&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden list--&gt;\n&lt;$reveal type=\&quot;match\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[list{!!title}limit[1]]' variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show list references\&quot;&gt;\n     {{$:/core/images/right-arrow}}  \n     ''&lt;&lt;currentTiddler&gt;&gt;'' is listing \n  &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n\n\n&lt;!-- listed in other tiddlers heading count and toc--&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n    &lt;$list filter='[all[current]listed[]!is[system]limit[1]]' variable=null&gt;\n      &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide listed references\&quot;&gt;\n      {{$:/core/images/down-arrow}}  \n       ''&lt;&lt;currentTiddler&gt;&gt;'' is listed in \n  &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;&lt;list-links filter:\&quot;[all[current]listed[]!is[system]]\&quot;&gt;&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden listed--&gt;\n&lt;$reveal type=\&quot;match\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[all[current]listed[]!is[system]limit[1]]' variable=null&gt;\n   &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show listed references\&quot;&gt;\n     {{$:/core/images/right-arrow}}  \n     ''&lt;&lt;currentTiddler&gt;&gt;'' is listed \n  &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- -----------------------END references and toc ------------------------------------ --&gt;\n\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate&quot;,
-            &quot;tags&quot;: &quot;$:/tags/ViewTemplate [[TW Customisations]]&quot;,
-            &quot;list-after&quot;: &quot;$:/core/ui/ViewTemplate/body&quot;,
-            &quot;button_reveal&quot;: &quot;{{$:/core/images/right-arrow}}__References__&quot;,
-            &quot;button_hide&quot;: &quot;{{$:/core/images/down-arrow}}__References__&quot;,
-            &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131100202818&quot;
-        },
-        &quot;$:/plugins/HCHaase/TOCgeneric/readme&quot;: {
-            &quot;created&quot;: &quot;20200124094640539&quot;,
-            &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;text&quot;: &quot;This plugin adds the viewtemplate $:/plugins/HCHaase/TOCgeneric/ViewTemplate . \n\nAt the bottom of tiddlers that has is tagging, has backlinks, list, is listed or any combination hereof, there will be shown\n\n\n# a list of'' tagged (TOC), backlinks, list'' and ''listed''\n# a button to reveal the lists and sub-lists  ( {{$:/core/images/right-arrow}}__References__ )\n# a button to hide the lists sub-lists ({{$:/core/images/down-arrow}}__References__ )\n\nAll sublists can be closed/opend by clicking on the header for the list. The open/closed status of all lists and sublists are remembered per individual tiddler.\n\nThe lists will ONLY appear if there is something in them. If you don't see e.g. the backlink list, it is because there are no backlinks to that tiddler. If you don't see the show the lists button, none of the lists are present.\n\n!! Customisation \nYou can change the reveal /hide buttons (or text) here. the default is `{{$:/core/images/right-arrow}}__References__` and `{{$:/core/images/down-arrow}}__References__`. If you like icons you could  transclude e.g. a chevron  like thiks `{{$:/core/images/chevron-up}}`, to get arrows {{$:/core/images/chevron-up}} .\n\nReveal button: &lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;button_reveal\&quot; default=\&quot;{{$:/core/images/chevron-down}}\&quot;/&gt;\n\nHide Button: &lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;button_hide\&quot; default=\&quot;{{$:/core/images/chevron-up}}\&quot;/&gt;\n\n!! Why I made this\n\nThis was inspired by the forum discussion on [[bi-directional linking|https://groups.google.com/forum/#!topic/tiddlywiki/LUVTps01UBU]] to show tiddler connection better.\n\nThis is an attempt to make all connections more visible for all tiddlers. You can see the same information in the info panel of the tiddlers, but this hopefully make the connections stand out more.\n\n!! Road map\n\nAt some point I want to \n\n* Add an exclude-filter (e.g. exclude advanced search)\n* Add set start of toc like Tonys example (https://groups.google.com/forum/#!topic/TiddlyWiki/wijV7wNnwpQ)\n* incorporate Daves BiLink plugin\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/readme&quot;,
-            &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
-            &quot;state&quot;: &quot;hide&quot;,
-            &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200131101016822&quot;
-        },
         &quot;$:/plugins/HCHaase/TOCgeneric/state&quot;: {
             &quot;created&quot;: &quot;20200130191912885&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
@@ -9240,6 +9218,41 @@ It can be toggled on or of in the settings (or below).
             &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
             &quot;modified&quot;: &quot;20200203124455278&quot;
+        },
+        &quot;$:/plugins/HCHaase/TOCgeneric/changelog&quot;: {
+            &quot;created&quot;: &quot;20200203125209497&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;text&quot;: &quot;2020/02/04 - v. 1.2.7\n\n* [New] Set default show/hide status of all lists. Note the default is overridden when status is changed in individual tiddler (by design).\n* [New] delete individual tiddler show/hide setting and set default instead\n* [FIX] tiddlers with colon: in title can now toggle the view of lists\n\n2020/01/31 - v. 1.2.5\n\n* [New] new default hide/show icon is set to text and use the arrows used in the normal TOC to keep it consistent with TW (can be changed by user)\n* [New] big one: all \&quot;sub\&quot; headings (tags, backlinks, list and listed) can be folded/hidden by clicking on them\n* [New] the reveal status for the general hide/show and for the sub-lists are tiddler specific and remembered  (stored in a data tiddler)\n* [New] position in viewtemplate is set in the plugin viewtemplate by a list-after field.\n \n\n2020/01/27\n\n* [Fix] the hide button no longer appear on tiddlers with nothing to show.\n* [New] option to change icon/text of buttons in the readme.&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/changelog&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200204091903838&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;
+        },
+        &quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate&quot;: {
+            &quot;created&quot;: &quot;20200122152834095&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate&quot;,
+            &quot;text&quot;: &quot;\n&lt;!-- show a 'show toc' button' if tags OR backlinks OR list OR listed is present for tiddler--&gt;\n&lt;$list filter='[tag&lt;currentTiddler&gt;] [all[current]backlinks[]] [list{!!title}] [all[current]listed[]!is[system]] +[limit[1]]'  variable=null&gt;\n\n&lt;!-- show button --&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt;default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state}} text=\&quot;show\&quot;&gt;\n&lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt;  setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show TOC/references\&quot;&gt;{{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!button_reveal}}&lt;/$button&gt;\n\n&lt;/$reveal&gt;\n\n&lt;!-- reveal toc and more --&gt;\n&lt;$reveal type=\&quot;match\&quot;  stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state}} text=\&quot;show\&quot;&gt;\n\n\n&lt;!-- hide button  --&gt;\n&lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide TOC/references\&quot;&gt;{{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!button_hide}}&lt;/$button&gt;\n\n\n&lt;!-- -----------------------references and toc ------------------------------------ --&gt;\n\n&lt;!-- tags heading count and toc --&gt;\n&lt;!-- hide tags --&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-tag}} text=\&quot;show\&quot;&gt; \n  &lt;$list filter='[tag&lt;currentTiddler&gt;limit[1]]'  variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide tag references\&quot;&gt;\n       {{$:/core/images/down-arrow}}\n   &lt;$count filter='[tag&lt;currentTiddler&gt;]'/&gt; Tagged with ''&lt;&lt;currentTiddler&gt;&gt;''\n&lt;/$button&gt; \n    &lt;br&gt;\n  &lt;/$list&gt;\n  &lt;$macrocall $name=\&quot;toc-selective-expandable\&quot; tag=&lt;&lt;currentTiddler&gt;&gt; sort=\&quot;sort[title]\&quot; /&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden tags --&gt;\n&lt;$reveal type=\&quot;match\&quot;  stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-tag}} text=\&quot;show\&quot;&gt;\n &lt;$list filter='[tag&lt;currentTiddler&gt;limit[1]]'  variable=null&gt;\n  &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-tag\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt;  setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show tag references\&quot;&gt;\n     {{$:/core/images/right-arrow}}  \n   &lt;$count filter='[tag&lt;currentTiddler&gt;]'/&gt; Tagged with ''&lt;&lt;currentTiddler&gt;&gt;'' \n  &lt;/$button&gt;\n    &lt;br&gt;\n  &lt;/$list&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- backlinks heading count and toc--&gt;\n&lt;$reveal  type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-backlinks}} text=\&quot;show\&quot;&gt;\n   &lt;$list filter='[all[current]backlinks[]limit[1]]' variable=null&gt;\n &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide backlink references\&quot;&gt;\n   {{$:/core/images/down-arrow}}  \n   &lt;$count filter='[all[current]backlinks[]]'/&gt; Links to ''&lt;&lt;currentTiddler&gt;&gt;''\n&lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;&lt;list-links filter:\&quot;[all[current]backlinks[]]\&quot; &gt;&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden links--&gt;\n&lt;$reveal type=\&quot;match\&quot;  stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-backlinks}} text=\&quot;show-backlinks\&quot;&gt; text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[all[current]backlinks[]limit[1]]' variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-backlinks\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show link references\&quot;&gt;\n       {{$:/core/images/right-arrow}}  \n    &lt;$count filter='[all[current]backlinks[]]'/&gt; Links to ''&lt;&lt;currentTiddler&gt;&gt;'' \n   &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n\n\n&lt;!-- list fields in this tiddler heading count and toc--&gt;\n&lt;$reveal type=\&quot;nomatch\&quot;stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-list}} text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[list{!!title}limit[1]]' variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt;  setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide list references\&quot;&gt;\n     {{$:/core/images/down-arrow}}  \n    ''&lt;&lt;currentTiddler&gt;&gt;'' is listing \n&lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;&lt;list-links filter:\&quot;[list{!!title}]\&quot;&gt;&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden list--&gt;\n&lt;$reveal type=\&quot;match\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-list}} text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[list{!!title}limit[1]]' variable=null&gt;\n    &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-list\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show list references\&quot;&gt;\n     {{$:/core/images/right-arrow}}  \n     ''&lt;&lt;currentTiddler&gt;&gt;'' is listing \n  &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n\n\n&lt;!-- listed in other tiddlers heading count and toc--&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-listed}} text=\&quot;show\&quot;&gt;\n    &lt;$list filter='[all[current]listed[]!is[system]limit[1]]' variable=null&gt;\n      &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Hide listed references\&quot;&gt;\n      {{$:/core/images/down-arrow}}  \n       ''&lt;&lt;currentTiddler&gt;&gt;'' is listed in \n  &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;&lt;list-links filter:\&quot;[all[current]listed[]!is[system]]\&quot;&gt;&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- show hidden listed--&gt;\n&lt;$reveal type=\&quot;match\&quot; stateTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; stateIndex=&lt;&lt;currentTiddler&gt;&gt; default={{$:/plugins/HCHaase/TOCgeneric/ViewTemplate!!default-state-listed}} text=\&quot;show\&quot;&gt;\n  &lt;$list filter='[all[current]listed[]!is[system]limit[1]]' variable=null&gt;\n   &lt;$button setTitle=\&quot;$:/plugins/HCHaase/TOCgeneric/state-listed\&quot; setIndex=&lt;&lt;currentTiddler&gt;&gt; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-popup-keep\&quot; tooltip=\&quot;Show listed references\&quot;&gt;\n     {{$:/core/images/right-arrow}}  \n     ''&lt;&lt;currentTiddler&gt;&gt;'' is listed \n  &lt;/$button&gt;\n&lt;br&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n\n&lt;!-- -----------------------END references and toc ------------------------------------ --&gt;\n\n&lt;/$reveal&gt;\n&lt;/$list&gt;\n\n&quot;,
+            &quot;tags&quot;: &quot;$:/tags/ViewTemplate [[TW Customisations]]&quot;,
+            &quot;list-after&quot;: &quot;$:/core/ui/ViewTemplate/body&quot;,
+            &quot;button_reveal&quot;: &quot;{{$:/core/images/right-arrow}}__References__&quot;,
+            &quot;button_hide&quot;: &quot;{{$:/core/images/down-arrow}}__References__&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;,
+            &quot;modified&quot;: &quot;20200204083251106&quot;,
+            &quot;default-state-backlinks&quot;: &quot;show&quot;,
+            &quot;default-state&quot;: &quot;hide&quot;,
+            &quot;default-state-tag&quot;: &quot;show&quot;,
+            &quot;default-state-list&quot;: &quot;hide&quot;,
+            &quot;default-state-listed&quot;: &quot;hide&quot;
+        },
+        &quot;$:/plugins/HCHaase/TOCgeneric/readme&quot;: {
+            &quot;created&quot;: &quot;20200124094640539&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/TOCgeneric/readme&quot;,
+            &quot;text&quot;: &quot;This plugin adds the viewtemplate $:/plugins/HCHaase/TOCgeneric/ViewTemplate . \n\nAt the bottom of tiddlers that has tagging, backlinks, list, is listed or any combination hereof, there will be shown:\n\n\n# a top level list of'' tagged (TOC), backlinks, list'' and ''listed''\n# a button to reveal the top level list and sub-lists  ( {{$:/core/images/right-arrow}}__References__ )\n# a button to hide the top level lists sub-lists ({{$:/core/images/down-arrow}}__References__ )\n\nAll sublists can be closed/opend by clicking on the header for the list. \n\nThe open/closed status of all lists and sublists are remembered per individual tiddler.\n\nThe lists will ONLY appear if there is something in them. If you don't see e.g. the backlink list, it is because there are no backlinks to that tiddler. If you don't see the show the lists button, none of the lists are present.\n\n!! Customisations\n\n!!! Buttons\nYou can change the reveal /hide buttons (or text) here. the default is `{{$:/core/images/right-arrow}}__References__` and `{{$:/core/images/down-arrow}}__References__`. If you like icons you could  transclude e.g. a chevron  like thiks `{{$:/core/images/chevron-up}}`, to get arrows {{$:/core/images/chevron-up}} .\n\nReveal button: &lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;button_reveal\&quot; default=\&quot;{{$:/core/images/chevron-down}}\&quot;/&gt;\n\nHide Button: &lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;button_hide\&quot; default=\&quot;{{$:/core/images/chevron-up}}\&quot;/&gt;\n\n!!! Default visibility\n\nYou can change the visibility of the lists to shown or hidden by default. \n\n*  &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state\&quot; value=\&quot;show\&quot;&gt; show&lt;/$radio&gt; &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state\&quot; value=\&quot;hide\&quot;&gt;  hide&lt;/$radio&gt;: Top level list  \n* &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-tag\&quot; value=\&quot;show\&quot;&gt; show&lt;/$radio&gt; &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-tag\&quot; value=\&quot;hide\&quot;&gt;  hide&lt;/$radio&gt;:   Tag list\n* &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-backlinks\&quot; value=\&quot;show\&quot;&gt; show&lt;/$radio&gt; &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-backlinks\&quot; value=\&quot;hide\&quot;&gt;  hide&lt;/$radio&gt;:   Backlinks list\n* &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-list\&quot; value=\&quot;show\&quot;&gt; show&lt;/$radio&gt; &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-list\&quot; value=\&quot;hide\&quot;&gt;  hide&lt;/$radio&gt;:  Lists list\n* &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-listed\&quot; value=\&quot;show\&quot;&gt; show&lt;/$radio&gt; &lt;$radio tiddler=\&quot;$:/plugins/HCHaase/TOCgeneric/ViewTemplate\&quot; field=\&quot;default-state-listed\&quot; value=\&quot;hide\&quot;&gt;  hide&lt;/$radio&gt;:  Listed list\n\nWhen you hide/show the list on a tiddler,'' the chosen state for that individual tiddler is remembered and overrides this default!'' Below you can delete the state and revert to default.\n\n&lt;$button&gt;\n&lt;$action-deletetiddler $filter=\&quot;[prefix[$:/plugins/HCHaase/TOCgeneric/state]]\&quot;/&gt;\nReset lists visibility to the above defaults\n&lt;/$button&gt; for all individual tiddlers (''can not be undone!!'') \n\n(you can  do this manually by deleting $:/plugins/HCHaase/TOCgeneric/state-xx tiddlers).\n\n!! Why I made this\n\nThis was inspired by the forum discussion on [[bi-directional linking|https://groups.google.com/forum/#!topic/tiddlywiki/LUVTps01UBU]] to show tiddler connection better.\n\nThis is an attempt to make all connections more visible for all tiddlers. You can see the same information in the info panel of the tiddlers, but this hopefully make the connections stand out more.\n\n!! Road map\n\nAt some point I want to \n\n* Add an exclude-filter (e.g. exclude advanced search)\n* Add set start of toc like Tonys example (https://groups.google.com/forum/#!topic/TiddlyWiki/wijV7wNnwpQ)\n* incorporate Daves BiLink plugin\n&quot;,
+            &quot;tags&quot;: &quot;$:/plugins/HCHaase/TOCgeneric&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;,
+            &quot;modified&quot;: &quot;20200204092902824&quot;
         }
     }
 }</pre>
@@ -9289,7 +9302,7 @@ It can be toggled on or of in the settings (or below).
 <div created="20200131140659990" modified="20200131140702516" title="$:/state/toc/TableOfContents-Introduction--118161433">
 <pre>close</pre>
 </div>
-<div list="Introduction" title="$:/StoryList">
+<div created="20200204092205445" list="$:/Import $:/plugins/HCHaase/TOCgeneric Introduction [[TOC-Generic Introduction]] $:/plugins/HCHaase/TOCgeneric/readme" modified="20200204093056675" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9337,14 +9350,17 @@ It can be toggled on or of in the settings (or below).
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1200&quot;
         }
     }
 }</pre>
+</div>
+<div created="20200204092233927" modified="20200204092535645" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.19">
 <pre>{
@@ -9513,8 +9529,8 @@ please add feedback /bugs in the threat in [[TW google groups|https://groups.goo
 
 I dont know if I Have done this in a optimal way so please let me know if you know a better way to do this. </pre>
 </div>
-<div created="20200131141557402" modified="20200203132202460" tags="Plugins" title="TOC-Generic Introduction">
-<pre>This plugin puts a table of contents, backlinks, list and listed at the button of every tiddler. Look for the text `References `at the button of tiddlers and click it.
+<div created="20200131141557402" modified="20200204092552765" tags="Plugins" title="TOC-Generic Introduction">
+<pre>This plugin puts a table of contents, backlinks, list and listed at the button of every tiddler. Look for the text `References` at the bottom of tiddlers and click it.
 
 It is good to explore connection and I also use it instead of table of content macros in overview tiddlers.
 
@@ -9524,15 +9540,7 @@ Newest version: {{$:/plugins/HCHaase/TOCgeneric!!version}}
 
 drag this link to your wiki: [[$:/plugins/HCHaase/TOCgeneric]]
 
-''NB: If upgrading, you have to manually delte the tiddlers:''
-
-* $:/plugins/HCHaase/TOCgeneric/state
-* $:/plugins/HCHaase/TOCgeneric/state-tag
-* $:/plugins/HCHaase/TOCgeneric/state-backlinks
-* $:/plugins/HCHaase/TOCgeneric/state-list
-* $:/plugins/HCHaase/TOCgeneric/state-listed
-
-
+''NB: If upgrading from 1.2.5, you have to go to $:/plugins/HCHaase/TOCgeneric/readme and press the button `Reset lists visibility to the above defaults`'' (this will delete the show/hide pereferences)
 
 ---
 
@@ -9543,25 +9551,7 @@ drag this link to your wiki: [[$:/plugins/HCHaase/TOCgeneric]]
 
 !!! Changelog
 
-{{TOC-Generic-changelog}}</pre>
-</div>
-<div created="20200203125209497" modified="20200203125549130" tags="" title="TOC-Generic-changelog">
-<pre>2020/02/03 - v. 1.2.6
-
-* [FIX] tiddlers with colon: in title can now toggle the view of lists
-
-2020/01/31 - v. 1.2.5
-
-* [New] new default hide/show icon is set to text and use the arrows used in the normal TOC to keep it consistent with TW (can be changed by user)
-* [New] big one: all &quot;sub&quot; headings (tags, backlinks, list and listed) can be folded/hidden by clicking on them
-* [New] the reveal status for the general hide/show and for the sub-lists are tiddler specific and remembered  (stored in a data tiddler)
-* [New] position in viewtemplate is set in the plugin viewtemplate by a list-after field.
- 
-
-2020/01/27
-
-* [Fix] the hide button no longer appear on tiddlers with nothing to show.
-* [New] option to change icon/text of buttons in the readme.</pre>
+{{$:/plugins/HCHaase/TOCgeneric/changelog}}</pre>
 </div>
 <div created="20200131142546398" modified="20200131142742300" tags="Plugins" title="Trashbin-mod">
 <pre>see [[https://hchaase.github.io/TW-Trashbin-mod/]]</pre>
