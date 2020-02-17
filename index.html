@@ -143,6 +143,8 @@ Error message and password prompt
 
 <li>$:/core</li>
 
+<li>$:/core/ui/MoreSideBar/Tags</li>
+
 <li>$:/DefaultTiddlers</li>
 
 <li>$:/Import</li>
@@ -150,6 +152,8 @@ Error message and password prompt
 <li>$:/isEncrypted</li>
 
 <li>$:/plugins/hchaase/toc_counting</li>
+
+<li>$:/plugins/HCHaase/toc_counting/changelog</li>
 
 <li>$:/plugins/HCHaase/toc_counting/readme</li>
 
@@ -9118,6 +9122,32 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div caption="{{$:/language/SideBar/Tags/Caption}}" created="20200217125350506" modified="20200217125350506" tags="$:/tags/MoreSideBar" title="$:/core/ui/MoreSideBar/Tags">
+<pre>&lt;$set name=&quot;tv-config-toolbar-icons&quot; value=&quot;yes&quot;&gt;
+
+&lt;$set name=&quot;tv-config-toolbar-text&quot; value=&quot;yes&quot;&gt;
+
+&lt;$set name=&quot;tv-config-toolbar-class&quot; value=&quot;&quot;&gt;
+
+{{$:/core/ui/Buttons/tag-manager}}
+
+&lt;/$set&gt;
+
+&lt;/$set&gt;
+
+&lt;/$set&gt;
+
+&lt;$list filter={{$:/core/Filters/AllTags!!filter}}&gt;
+
+&lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt; (&lt;$count filter=&quot;[all[current]tagging[]]&quot;/&gt;)
+
+&lt;/$list&gt;
+
+&lt;hr class=&quot;tc-untagged-separator&quot;&gt;
+
+{{$:/core/ui/UntaggedTemplate}}
+</pre>
+</div>
 <div created="20190611094749746" modified="20190611094754763" title="$:/DefaultTiddlers">
 <pre>Introduction</pre>
 </div>
@@ -9238,6 +9268,30 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20200214111942791" creator="HC Haase" modified="20200217125459204" modifier="HC Haase" tags="" title="$:/plugins/HCHaase/toc_counting/changelog">
+<pre>I'm trying to follow the rules of [[Semantic Versioning|https://semver.org/]].
+
+2.1.0
+
+* [fix] removed `$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_org` from templates in the locator plugin (removed tag)
+* [documentation] clarity: change caption of `$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_count ` to` Link (with counter)`
+* [documentation] clarity: added description field to tiddlers, describing there function
+* [documentation] added reference to the locator plugin settings
+* [new] added count for P Marios[[ tocP|https://wikilabs.github.io/editions/tocP/]] plugin. It only works when the `parent` field is used but not with a custom field  (I don't know how to do this).
+
+2.0.0
+
+* [fix] more sidebar/tags had old and new version. now toggle between two
+* [new] toggle the more sidebar/tags count/no.count
+* [new] added count for bimlas locator plugin
+* [new] added toggle count/no.count for bimlas locator plugin
+
+1.0.0
+
+  * First public version
+  * toggle count/no.count for main toc macro
+  * add a more sidebar/tags with counts</pre>
 </div>
 <div created="20190611082221870" creator="HC Haase" modified="20190611095239492" modifier="HC Haase" title="$:/plugins/HCHaase/toc_counting/readme">
 <pre>The //TOC counting// plugin adds a count of child tiddlers to the right of each entry in the TOC(s). No count will be shown if there isn't any child tiddlers (e.g. no 0).
@@ -9388,8 +9442,8 @@ It can be toggled on or of in the settings (or below).
 <div created="20200206111840330" modified="20200206111840330" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Plugins</pre>
 </div>
-<div created="20190611094656338" modified="20200214145717136" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20190611094656338" modified="20200217125414037" title="$:/state/tab/sidebar--595412856">
+<pre>TableOfContents</pre>
 </div>
 <div created="20200203132243375" modified="20200206121445276" title="$:/state/toc/Plugins-TOC-Generic Introduction--429161835">
 <pre>close</pre>
@@ -9397,7 +9451,7 @@ It can be toggled on or of in the settings (or below).
 <div created="20200131140659990" modified="20200131140702516" title="$:/state/toc/TableOfContents-Introduction--118161433">
 <pre>close</pre>
 </div>
-<div created="20200217124210114" list="$:/Import Introduction [[TOC-Counting Introduction]] $:/plugins/HCHaase/toc_counting/changelog" modified="20200217124354693" title="$:/StoryList">
+<div created="20200217124516556" list="Introduction [[TOC-Counting Introduction]] $:/plugins/hchaase/toc_counting $:/plugins/HCHaase/toc_counting/changelog $:/plugins/HCHaase/toc_counting/readme" modified="20200217125450664" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200214145727451" modified="20200214145727451" title="$:/temp/advancedsearch">
@@ -9614,10 +9668,8 @@ Tagged with //&lt;&lt;currentTiddler&gt;&gt;// (&lt;$count filter='[tag&lt;curre
 <div created="20190611100405264" modified="20190611100429241" tags="TableOfContents" title="Tiddler2(no sub-tiddlers)">
 <pre></pre>
 </div>
-<div created="20200131140802983" modified="20200217124402380" tags="Plugins" title="TOC-Counting Introduction">
+<div created="20200131140802983" modified="20200217125342224" tags="Plugins" title="TOC-Counting Introduction">
 <pre>Sometimes TW can feel like a black box,  I made this plugin to get a better feel of my table of contents / index tiddlers at a glance. 
-
-{{$:/plugins/HCHaase/toc_counting/readme}}
 
 !! Download
 drag[[ this|$:/plugins/hchaase/toc_counting]] to your wiki. latest version {{$:/plugins/hchaase/toc_counting!!version}}.
@@ -9627,7 +9679,11 @@ please add feedback /bugs in the threat in [[TW google groups|https://groups.goo
 
 I dont know if I Have done this in a optimal way so please let me know if you know a better way to do this. 
 
-[[$:/plugins/HCHaase/toc_counting/changelog]]
+!! Readme
+{{$:/plugins/HCHaase/toc_counting/readme}}
+
+
+!! Changelog
 
 {{$:/plugins/HCHaase/toc_counting/changelog}}</pre>
 </div>
