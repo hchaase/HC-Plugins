@@ -155,9 +155,9 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
-<li>$:/plugins/hchaase/toc_counting</li>
-
 <li>$:/plugins/HCHaase/toc_counting</li>
+
+<li>$:/plugins/hchaase/toc_counting</li>
 
 <li>$:/plugins/HCHaase/TOCgeneric</li>
 
@@ -9219,7 +9219,7 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/HCHaase/macros/icon]]</pre>
+# [[$:/plugins/hchaase/toc_counting]]</pre>
 </div>
 <div created="20200311094359303" modified="20200311094359903" title="$:/Import!!popup-Untitled">
 <pre>no</pre>
@@ -9227,7 +9227,10 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div author="HC Haase" core-version="5.1.21" created="20190611093248651" creator="HC Haase" dependents="kin-filter" description="TOC Counting" list="readme changelog settings" modified="20200311091617823" modifier="HC Haase" name="TOC Counting" plugin-type="plugin" source="https://hchaase.github.io/HC-Plugins/" title="$:/plugins/hchaase/toc_counting" type="application/json" version="2.2.0">
+<div created="20200311095755766" modified="20200311095755766" tags="$:/tags/Macro" title="$:/plugins/HCHaase/toc_counting">
+<pre></pre>
+</div>
+<div author="HC Haase" core-version="5.1.21" created="20190611093248651" creator="HC Haase" dependents="kin-filter" description="TOC Counting" list="readme changelog settings" modified="20200311101957166" modifier="HC Haase" name="TOC Counting" plugin-type="plugin" source="https://hchaase.github.io/HC-Plugins/" title="$:/plugins/hchaase/toc_counting" type="application/json" version="2.2.0">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_count&quot;: {
@@ -9321,7 +9324,7 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
             &quot;text&quot;: &quot;tag&quot;,
             &quot;title&quot;: &quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200311091440122&quot;,
+            &quot;modified&quot;: &quot;20200311091537056&quot;,
             &quot;level&quot;: &quot;1&quot;,
             &quot;description&quot;: &quot;state for the the count type of the toc_counting macro. level field to choose between clasin and deep level search with kin filter&quot;
         },
@@ -9343,13 +9346,13 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
             &quot;modified&quot;: &quot;20200311084928641&quot;
         },
         &quot;$:/plugins/HCHaase/toc_counting/settings&quot;: {
-            &quot;text&quot;: &quot;! [[Counting in Table of Contents|$:/plugins/HCHaase/toc_counting/settings]] \n\nChoose between classic mode, counting tags for the// first level//, deep mode with counting, tags in //all levels//  (requires the kin-filter plugin) or turn off.\nToggle below or press the button {{/plugins/HCHaase/toc_counting/button/toggle-counting-level}} in the page toolbar.\n\n*&lt;$radio tiddler=\&quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting\&quot; field=\&quot;level\&quot; value=\&quot;1\&quot;&gt; Classic mode (1 level)&lt;/$radio&gt;\n*&lt;$radio tiddler=\&quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting\&quot; field=\&quot;level\&quot; value=\&quot;deep\&quot;&gt; Deep mode (all levels)&lt;/$radio&gt; (NB: will slowdown the wiki)\n*&lt;$radio tiddler=\&quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting\&quot; field=\&quot;level\&quot; value=\&quot;off\&quot;&gt; Turn off&lt;/$radio&gt;\n\n!! Enable \n*&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/toc_counting\&quot; tag=\&quot;$:/tags/Macro\&quot; default=\&quot;$:/tags/Macro\&quot;&gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/settings/readme\&quot;&gt;Enable counting of sub-tiddlers in TOC&lt;/$link&gt; &lt;/$checkbox&gt;\n*&lt;$checkbox tiddler=\&quot;$:/core/ui/MoreSideBar/Tags\&quot; field=\&quot;text\&quot; checked={{$:/plugins/HCHaase/toc_counting/more/tag!!text}} unchecked={{$:/plugins/HCHaase/toc_counting/more/tag_org!!text}}default={{!!tags_count}} &gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/more/tag\&quot;&gt;Enable counting of sub-tiddlers in More/Tags&lt;/$link&gt; &lt;/$checkbox&gt;  \n*&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/toc_counting/core/macros/list\&quot; tag=\&quot;$:/tags/Macro\&quot; default=\&quot;$:/tags/Macro\&quot;&gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/core/macros/list\&quot;&gt;Enable counting of sub-tiddlers in list-links and list link-draggable&lt;/$link&gt; &lt;/$checkbox&gt;\n\n!! Integration with other plugins\nHere you can toggle counting in other TOC making plugins. If this interfere undesirably with these plugins (e.g. with future updates), you can leave them unchecked.\n\n*&lt;$checkbox  tiddler=\&quot;$:/plugins/bimlas/locator/field-templates/link\&quot; field=\&quot;text\&quot; checked={{$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_count!!text}} unchecked={{$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_org!!text}}&gt;\n&lt;$link to=\&quot;$:/plugins/bimlas/locator/field-templates/link\&quot;&gt;Enable counting of sub-tiddlers in Locator TOC&lt;/$link&gt; &lt;/$checkbox&gt;\n\nIf you have the [[locator plugin|https://bimlas.gitlab.io/tw5-locator/#]] form bimlas, you can toggle the counting above. OR you can use the locator/context setting, in the locator plugin to toggle it. Press the context menu (cog wheel) and change the `Template of context items:` to LINKS (with counter).\n\n*&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/toc_counting/tocP/macros\&quot; tag=\&quot;$:/tags/Macro\&quot; default=\&quot;\&quot;&gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/tocP/readme\&quot;&gt;Enable (partial) counting of sub-tiddlers in tocP&lt;/$link&gt; &lt;/$checkbox&gt;\n\nNB: The support for the [[tocP plugin|https://wikilabs.github.io/editions/tocP/]] is only partial. It will only work when the plugin is used with the `parent` field and not when used with a custom field.\n\n&quot;,
+            &quot;created&quot;: &quot;20190611081555857&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;text&quot;: &quot;! [[Counting in Table of Contents|$:/plugins/HCHaase/toc_counting/settings]] \n\nChoose between classic mode, counting tags for the// first level//, deep mode with counting, tags in //all levels//  (requires the kin-filter plugin) or turn off.\nToggle below or press the button &lt;&lt;icon {{$:/plugins/HCHaase/toc_counting/button/toggle-counting-level}}&gt;&gt; in the page toolbar.\n\n*&lt;$radio tiddler=\&quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting\&quot; field=\&quot;level\&quot; value=\&quot;1\&quot;&gt; Classic mode (1 level)&lt;/$radio&gt;\n*&lt;$radio tiddler=\&quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting\&quot; field=\&quot;level\&quot; value=\&quot;deep\&quot;&gt; Deep mode (all levels)&lt;/$radio&gt; (NB: will slowdown the wiki)\n*&lt;$radio tiddler=\&quot;$:/state/plugins/HCHaase/toc_counting/macro/toc_counting\&quot; field=\&quot;level\&quot; value=\&quot;off\&quot;&gt; Turn off&lt;/$radio&gt;\n\n!! Enable \n*&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/toc_counting\&quot; tag=\&quot;$:/tags/Macro\&quot; default=\&quot;$:/tags/Macro\&quot;&gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/settings/readme\&quot;&gt;Enable counting of sub-tiddlers in TOC&lt;/$link&gt; &lt;/$checkbox&gt;\n*&lt;$checkbox tiddler=\&quot;$:/core/ui/MoreSideBar/Tags\&quot; field=\&quot;text\&quot; checked={{$:/plugins/HCHaase/toc_counting/more/tag!!text}} unchecked={{$:/plugins/HCHaase/toc_counting/more/tag_org!!text}}default={{!!tags_count}} &gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/more/tag\&quot;&gt;Enable counting of sub-tiddlers in More/Tags&lt;/$link&gt; &lt;/$checkbox&gt;  \n*&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/toc_counting/core/macros/list\&quot; tag=\&quot;$:/tags/Macro\&quot; default=\&quot;$:/tags/Macro\&quot;&gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/core/macros/list\&quot;&gt;Enable counting of sub-tiddlers in list-links and list link-draggable&lt;/$link&gt; &lt;/$checkbox&gt;\n\n!! Integration with other plugins\nHere you can toggle counting in other TOC making plugins. If this interfere undesirably with these plugins (e.g. with future updates), you can leave them unchecked.\n\n*&lt;$checkbox  tiddler=\&quot;$:/plugins/bimlas/locator/field-templates/link\&quot; field=\&quot;text\&quot; checked={{$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_count!!text}} unchecked={{$:/plugins/HCHaase/toc_counting/bimlas/locator/field-templates/link_org!!text}}&gt;\n&lt;$link to=\&quot;$:/plugins/bimlas/locator/field-templates/link\&quot;&gt;Enable counting of sub-tiddlers in Locator TOC&lt;/$link&gt; &lt;/$checkbox&gt;\n\nIf you have the [[locator plugin|https://bimlas.gitlab.io/tw5-locator/#]] form bimlas, you can toggle the counting above. OR you can use the locator/context setting, in the locator plugin to toggle it. Press the context menu (cog wheel) and change the `Template of context items:` to LINKS (with counter).\n\n*&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/toc_counting/tocP/macros\&quot; tag=\&quot;$:/tags/Macro\&quot; default=\&quot;\&quot;&gt; &lt;$link to=\&quot;$:/plugins/HCHaase/toc_counting/tocP/readme\&quot;&gt;Enable (partial) counting of sub-tiddlers in tocP&lt;/$link&gt; &lt;/$checkbox&gt;\n\nNB: The support for the [[tocP plugin|https://wikilabs.github.io/editions/tocP/]] is only partial. It will only work when the plugin is used with the `parent` field and not when used with a custom field.\n\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/HCHaase/toc_counting/settings&quot;,
             &quot;tags&quot;: &quot;$:/tags/ControlPanel/Settings&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200310161202604&quot;,
-            &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;created&quot;: &quot;20190611081555857&quot;
+            &quot;modified&quot;: &quot;20200311101838852&quot;
         },
         &quot;$:/plugins/HCHaase/toc_counting/toc&quot;: {
             &quot;created&quot;: &quot;20180911090306734&quot;,
@@ -9371,12 +9374,21 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
             &quot;modifier&quot;: &quot;HC Haase&quot;,
             &quot;modified&quot;: &quot;20200311091417984&quot;,
             &quot;description&quot;: &quot;code from toc macro with counting inserted. will be given tag tags/macro to replace the original toc macro&quot;
+        },
+        &quot;$:/HCHaase/macros/icon&quot;: {
+            &quot;text&quot;: &quot;\\define icon(icon navigate tooltip) \n&lt;$button to=\&quot;$navigate$\&quot; tooltip=\&quot;$tooltip$\&quot;class=\&quot;tc-btn-invisible\&quot;&gt;&lt;&lt;__icon__&gt;&gt;&lt;/$button&gt;\n\\end\n\n\\define _icon(icon) \n&lt;button class=\&quot;tc-btn-invisible\&quot;disabled&gt;&lt;&lt;__icon__&gt;&gt;&lt;/button&gt;\n\\end\n\n\n* ''Version'': 1.0.0\n* ''Date'': 2020/02/27\n* ''Creator'': HC Haase. Inspired by [[Bimlas|https://bimlas.gitlab.io/tw5-locator/#%24%3A%2Fbimlas%2Fmacros%2Ficon]].\n\n!! Function\nThis macro make transcluded icons follow the line height of the text with the option of a link and a tooltip. \nThis makes prettier references to buttons (like this &lt;&lt;_icon {{$:/core/images/new-button}} \&quot;link\&quot; \&quot;tooltip text\&quot;&gt;&gt; instead of  this  {{$:/core/images/new-button}}) in documentation text.\n\nThere is a'' simple macro'' without a button and an ''extended macro'' with a button.\n\n!! Use\n\n;Syntax, simple macro  (note the `_`)\n:`&lt;&lt;_icon &lt;transclusion&gt; &gt;&gt;`&lt;$button message=\&quot;tm-copy-to-clipboard\&quot; param=\&quot;&lt;&lt;_icon &lt;transclusion&gt; &gt;&gt;\&quot;}&gt;Copy&lt;/$button&gt;\n\n;Syntax, extended macro\n:`&lt;&lt;icon &lt;transclusion&gt; &lt;link&gt; \&quot;&lt;tooltip text&gt;\&quot; &gt;&gt;`&lt;$button message=\&quot;tm-copy-to-clipboard\&quot; param=\&quot;&lt;&lt;icon &lt;transclusion&gt; &gt;&gt;\&quot;}&gt;Copy&lt;/$button&gt;\n\n|! Attribute|!Option|!Description|\n|transclusion|required|a transclusion of an icon|\n|link|optional|name of tiddler to link to (omit with `\&quot;\&quot;`)|\n|tooltip text|optional|text of tooltip|\n\n\n;Example\n:`&lt;&lt;icon {{$:/core/images/new-button}} \&quot;link\&quot; \&quot;tooltip text\&quot;&gt;&gt;` \n:will produce &lt;&lt;icon {{$:/core/images/new-button}} \&quot;link\&quot; \&quot;tooltip text\&quot;&gt;&gt; that links to \&quot;link\&quot;.\nNB: if you want no link, but at tooltip, use `\&quot;\&quot;` for a empty link.\n\n!! Code\n\n```\n\\define icon(icon navigate tooltip) \n&lt;$button to=\&quot;$navigate$\&quot; tooltip=\&quot;$tooltip$\&quot;class=\&quot;tc-btn-invisible\&quot;&gt;&lt;&lt;__icon__&gt;&gt;&lt;/$button&gt;\n\\end\n\n\\define _icon(icon) \n&lt;button class=\&quot;tc-btn-invisible\&quot;disabled&gt;&lt;&lt;__icon__&gt;&gt;&lt;/button&gt;\n\\end\n```&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;title&quot;: &quot;$:/HCHaase/macros/icon&quot;,
+            &quot;tags&quot;: &quot;Macros plugins TW $:/tags/Macro&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;,
+            &quot;modified&quot;: &quot;20200309121756465&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;created&quot;: &quot;20200210162320311&quot;,
+            &quot;bag&quot;: &quot;default&quot;
         }
     }
 }</pre>
-</div>
-<div created="20200311095755766" modified="20200311095755766" tags="$:/tags/Macro" title="$:/plugins/HCHaase/toc_counting">
-<pre></pre>
 </div>
 <div author="HC Haase" core-version="5.1.21" created="20200127075224438" creator="HC Haase" description="TOC Generic - adds extended TOC to the bottom of tiddlers" list="readme" modified="20200206111711155" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/TOCgeneric" type="application/json" version="1.2.9">
 <pre>{
@@ -9538,7 +9550,7 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div created="20200311095818926" modified="20200311095927414" title="$:/state/toc/TableOfContents/Plugins-TOC-Generic Introduction--118161433">
 <pre>close</pre>
 </div>
-<div list="Introduction" title="$:/StoryList">
+<div created="20200311102040222" list="$:/Import Introduction [[TOC_Counting Introduction]]" modified="20200311102043195" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200214145727451" modified="20200214145727451" title="$:/temp/advancedsearch">
