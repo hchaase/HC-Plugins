@@ -161,9 +161,23 @@ Error message and password prompt
 
 <li>$:/plugins/HCHaase/TOCgeneric</li>
 
+<li>$:/plugins/kookma/trashbin/macros/bulk-operation</li>
+
+<li>$:/plugins/kookma/trashbin/macros/bulk-operation/v1</li>
+
+<li>$:/plugins/kookma/trashbin/sidebar-tab</li>
+
+<li>$:/plugins/kookma/trashbin/sidebar-tab/v1</li>
+
+<li>$:/plugins/kookma/trashbin/trashbin-mod/readme</li>
+
+<li>$:/plugins/kookma/trashbin/trashbin-mod/readme/v1</li>
+
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
+
+<li>$:/state/edit/references--1208565533</li>
 
 <li>$:/state/edit/references--1866000313</li>
 
@@ -260,8 +274,8 @@ Error message and password prompt
 <div created="20200203124853709" modified="20200203124853709" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
-<div created="20200131141250848" modified="20200214145545955" title="$:/config/RelinkOnRename">
-<pre>no</pre>
+<div created="20200131141250848" modified="20200330125056356" title="$:/config/RelinkOnRename">
+<pre>yes</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.19">
 <pre>{
@@ -9219,7 +9233,9 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/hchaase/toc_counting]]</pre>
+# [[$:/plugins/kookma/trashbin/trashbin-mod/readme]]
+# [[$:/plugins/kookma/trashbin/sidebar-tab]]
+# [[$:/plugins/kookma/trashbin/macros/bulk-operation]]</pre>
 </div>
 <div created="20200311094359303" modified="20200311094359903" title="$:/Import!!popup-Untitled">
 <pre>no</pre>
@@ -9481,11 +9497,246 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
     }
 }</pre>
 </div>
+<div created="20190723115934925" creator="HC Haase" modified="20200330122620803" modifier="HC Haase" title="$:/plugins/kookma/trashbin/macros/bulk-operation" type="text/vnd.tiddlywiki">
+<pre>\define delete-trashed-tiddlers()
+&lt;$list filter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]]&quot; variable=&quot;Item&quot;&gt;
+&lt;$action-deletetiddler $tiddler=&lt;&lt;Item&gt;&gt; /&gt;
+&lt;!-- This line will delete the revision tiddlers made by jd's  Plain Revisions plugin and Mals mod verson of this plugin [HC] --&gt;
+&lt;$action-deletetiddler $filter=&quot;[&lt;Item&gt;] [&lt;Item&gt;removeprefix[$:/trashbin/]listed[]prefix[$:/rev]!has[pin]] [&lt;Item&gt;removeprefix[$:/trashbin/]listed[]prefix[$:/_vc/]!has[pin]]&quot;/&gt;
+&lt;/$list&gt;
+\end
+
+\define trashbin-empty-bin()
+&lt;$macrocall $name=&quot;trashbin-confirm-delete&quot;
+btnLabel=&quot;Empty Trashbin&quot;
+countFilter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]]&quot;
+actionMacro=&lt;&lt;delete-trashed-tiddlers&gt;&gt;
+stateTiddler=&quot;$:/state/trashbin/emptyTrashBin&quot;
+/&gt;
+\end
+
+\define restore-all()
+&lt;$button tooltip=&quot;Restore all&quot; class=&quot;tc-btn-invisible tc-tiddlylink&quot;&gt; {{$:/plugins/kookma/trashbin/images/recycle}}
+&lt;$list filter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]sort[]]&quot; variable=&quot;Item&quot;&gt;
+&lt;$macrocall $name=&quot;restore&quot; tiddler=&lt;&lt;Item&gt;&gt; /&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+\end</pre>
+</div>
+<div created="20190723115934925" creator="HC Haase" modified="20200330125118892" modifier="HC Haase" tags="$:/tags/Macro" title="$:/plugins/kookma/trashbin/macros/bulk-operation/v1" type="text/vnd.tiddlywiki">
+<pre>\define delete-trashed-tiddlers()
+&lt;$list filter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]]&quot; variable=&quot;Item&quot;&gt;
+&lt;$action-deletetiddler $tiddler=&lt;&lt;Item&gt;&gt; /&gt;
+&lt;!-- This line will delete the revision tiddlers made by jd's  Plain Revisions plugin [HC] --&gt;
+&lt;$action-deletetiddler $filter=&quot;[&lt;Item&gt;removeprefix[$:/trashbin/]listed[]prefix[$:/rev]!has[pin]]&quot;/&gt;
+&lt;/$list&gt;
+\end
+
+\define trashbin-empty-bin()
+&lt;$macrocall $name=&quot;trashbin-confirm-delete&quot;
+btnLabel=&quot;Empty Trashbin&quot;
+countFilter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]]&quot;
+actionMacro=&lt;&lt;delete-trashed-tiddlers&gt;&gt;
+stateTiddler=&quot;$:/state/trashbin/emptyTrashBin&quot;
+/&gt;
+\end
+
+\define restore-all()
+&lt;$button tooltip=&quot;Restore all&quot; class=&quot;tc-btn-invisible tc-tiddlylink&quot;&gt; {{$:/plugins/kookma/trashbin/images/recycle}}
+&lt;$list filter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]sort[]]&quot; variable=&quot;Item&quot;&gt;
+&lt;$macrocall $name=&quot;restore&quot; tiddler=&lt;&lt;Item&gt;&gt; /&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+\end</pre>
+</div>
+<div caption="Trashbin" created="20190613131234955" creator="HC Haase" modified="20200330121949694" modifier="HC Haase" tags="$:/tags/SideBar" title="$:/plugins/kookma/trashbin/sidebar-tab" type="text/vnd.tiddlywiki">
+<pre>\import $:/plugins/kookma/trashbin/macros/sort
+\import $:/plugins/kookma/trashbin/macros/restore
+\import $:/plugins/kookma/trashbin/macros/confirm-empty
+\import $:/plugins/kookma/trashbin/macros/bulk-operation
+\import $:/plugins/kookma/trashbin/macros/preview-option
+
+\define show-link()
+&lt;$link to=&lt;&lt;currentTiddler&gt;&gt; &gt;&lt;$text text={{{ [&lt;currentTiddler&gt;removeprefix[$:/trashbin/]] }}} /&gt; &lt;/$link&gt;&amp;nbsp;&lt;span style=&quot;float:right;padding-right:10px;font-size:smaller;&quot; title=&quot;Date Deleted&quot;&gt;&lt;$view field=&quot;modified&quot; format=&quot;date&quot; template=&quot;0MM/0DD/YYYY 0hh:0mm AM&quot;/&gt;&lt;/span&gt;
+\end
+
+\define recycle-button()
+{{||$:/plugins/kookma/trashbin/ui/toolbar-button}}
+\end
+
+\define delete-button()
+&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;Delete permanently&quot;&gt;
+{{$:/plugins/kookma/trashbin/images/times.svg}}
+&lt;$list filter=&quot;[list[$:/StoryList]] +[field:title&lt;currentTiddler&gt;&gt;]&quot; variable=ignore&gt;
+&lt;$action-sendmessage $message=&quot;tm-close-tiddler&quot; $param=&lt;&lt;&lt;currentTiddler&gt;&gt; /&gt;
+&lt;/$list&gt;
+&lt;!-- This line will delete the revision tiddlers made by jd's  Plain Revisions plugin and Mas mod verson of this plugin [HC] --&gt;
+&lt;$action-deletetiddler $filter=&quot;[&lt;currentTiddler&gt;] [&lt;currentTiddler&gt;removeprefix[$:/trashbin/]listed[]prefix[$:/rev]!has[pin]] [&lt;currentTiddler&gt;removeprefix[$:/trashbin/]listed[]prefix[$:/_vc/]!has[pin]]&quot;/&gt;
+
+&lt;/$button&gt;
+\end
+
+\define trashbin-siderbar-ui()
+&lt;div class=&quot;kk-trahbin-ui&quot;&gt;
+
+&lt;span class=&quot;kk-trahbin-ui-controls&quot;&gt;
+&lt;&lt;trashbin-empty-bin&gt;&gt; &lt;&lt;restore-all&gt;&gt; &lt;&lt;sort-by&gt;&gt; &lt;&lt;preview-option&gt;&gt;
+
+&lt;/span&gt;&amp;nbsp;
+&lt;span style=&quot;font-size:smaller&quot;&gt;
+&lt;$list filter='[tag[$:/tags/trashbin]prefix[$:/trashbin/]limit[1]]'  variable=null emptyMessage=&quot;Trash bin is empty&quot;&gt;
+&lt;$count filter='[tag[$:/tags/trashbin]]'/&gt; items in Trashbin
+&lt;/$list&gt;
+&lt;/span&gt;
+
+&lt;$list filter=&quot;[tag[$:/tags/trashbin]prefix[$:/trashbin/]$(sortType)$]&quot;&gt;
+&lt;div class=&quot;kk-trashbin-row&quot;&gt;
+	&lt;div class=&quot;kk-trashbin-link&quot;&gt;&lt;&lt;show-link&gt;&gt;&lt;/div&gt;
+	&lt;div class=&quot;kk-trashbin-recycle&quot;&gt;&lt;&lt;recycle-button&gt;&gt;&lt;/div&gt;
+	&lt;div class=&quot;kk-trashbin-delete&quot;&gt;&lt;&lt;delete-button&gt;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/$list&gt;
+
+&lt;/div&gt;
+\end
+
+&lt;$vars sortType={{{[&lt;tempSortTid&gt;get[text]] ~[[]] }}}&gt;
+&lt;&lt;trashbin-siderbar-ui&gt;&gt;
+&lt;/$vars&gt;</pre>
+</div>
+<div caption="Trashbin" created="20190613131234955" creator="HC Haase" modified="20200330125106836" modifier="HC Haase" tags="$:/tags/SideBar" title="$:/plugins/kookma/trashbin/sidebar-tab/v1" type="text/vnd.tiddlywiki">
+<pre>\define show-link()
+&lt;$link to=&lt;&lt;currentTiddler&gt;&gt; &gt;&lt;$text text={{{ [&lt;currentTiddler&gt;removeprefix[$:/trashbin/]] }}} /&gt; &lt;/$link&gt;
+\end
+
+
+\define recycle-button()
+{{||$:/plugins/kookma/trashbin/viewtoolbar-button}}
+\end
+
+\define delete-button()
+&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;Delete permanently&quot;&gt;
+{{$:/plugins/kookma/trashbin/images/times.svg}}
+
+&lt;!-- This line will delete the revision tiddlers made by jd's  Plain Revisions plugin [HC] --&gt;
+&lt;$action-deletetiddler $filter=&quot;[&lt;currentTiddler&gt;] [&lt;currentTiddler&gt;removeprefix[$:/trashbin/]listed[]prefix[$:/rev]!has[pin]]&quot;/&gt;
+
+&lt;/$button&gt;
+\end
+
+&lt;div class=&quot;kk-trahbin-ui&quot;&gt;
+
+&lt;span class=&quot;kk-trahbin-ui-controls&quot;&gt;
+&lt;&lt;trashbin-empty-bin&gt;&gt; &lt;&lt;restore-all&gt;&gt;
+&lt;/span&gt;
+
+&lt;$list filter='[tag[$:/tags/trashbin]limit[1]]'  variable=null&gt;
+&lt;$count filter='[tag[$:/tags/trashbin]]'/&gt; items in trash.
+&lt;/$list&gt;
+&lt;$list filter=&quot;[tag[$:/tags/trashbin]search:title[$:/trashbin/]sortan[]]&quot; emptyMessage=&quot;Trash bin is empty&quot;&gt;
+&lt;div class=&quot;kk-trashbin-row&quot;&gt;
+	&lt;div class=&quot;kk-trashbin-link&quot;&gt;&lt;&lt;show-link&gt;&gt;&lt;/div&gt;
+	&lt;div class=&quot;kk-trashbin-recycle&quot;&gt;&lt;&lt;recycle-button&gt;&gt;&lt;/div&gt;
+	&lt;div class=&quot;kk-trashbin-delete&quot;&gt;&lt;&lt;delete-button&gt;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/$list&gt;
+
+&lt;/div&gt;</pre>
+</div>
+<div created="20190919132938820" creator="HC Haase" modified="20200330125405361" modifier="HC Haase" title="$:/plugins/kookma/trashbin/trashbin-mod/readme">
+<pre>!! __Version 1.2__
+
+!! The problem
+
+If you use JD's very nice [[Plain Revisions|http://j.d.revisions.tiddlyspot.com/]] plugin and also want to use Kookma's very nice [[Trashbin|https://kookma.github.io/TW-Trashbin/]] plugin you have a problem! when a tiddler go in the trash bin, the revisions are not touched, and if you later delete the tiddler from trash, you will have revisions of non-existing tiddelrs filling up the wiki and a hard time locating these revisions.
+
+!! The solution
+
+The solution is my Trashbin-mod. With this mod, the revision tiddlers will be deleted whenever the corresponding tiddeler is deleted permanently from the trash bin. 
+
+The revisions are not changed nor deleted as long as the corresponding tiddler is in the trash bin. Therefore, if you restore a tiddler from the trash bin, the revisions will still be there.
+
+!!! Features
+
+# When a tiddler is ''permanently'' deleted from the trash (individually or in bulk), the corresponding revisions of these tiddelers are also deleted. 
+# In the trashbin sidebar I added a count items in trash that will appear when the trashbin is not empty. 
+
+!! Install
+
+Drag and drop these two tiddlers to your wiki:
+
+* [[$:/plugins/kookma/trashbin/sidebar-tab]]
+* [[$:/plugins/kookma/trashbin/macros/bulk-operation]]
+
+!!! Uninstall
+
+Locate the above tiddlers in your wiki in the [[$:/plugins/kookma/trashbin]] plugin and delete them. This will restore the original settings from the Trashbin plugin.
+
+!! Tip
+
+If you (like me) don't want the sidebar cluttered, you can move the trashbin to the more tab by replacing the `$:/tags/SideBar` tag with `$:/tags/MoreSideBar` tag.
+
+
+!! Issues ?
+Post them at [[github|https://github.com/hchaase/TW-Trashbin-mod/issues]].
+
+!!Changelog
+
+v1.1.0
+
+* made it ocmpatible with the new [[trashbin plugin v 1.2.1|https://kookma.github.io/TW-Trashbin/]] 
+
+v 1.0.0
+
+* first release. Use this for trahsbin plugin v 1.0.0 (find it [[here|$:/plugins/kookma/trashbin/trashbin-mod/readme-v1]])</pre>
+</div>
+<div created="20190919132938820" modified="20200330125250938" title="$:/plugins/kookma/trashbin/trashbin-mod/readme/v1">
+<pre>!! __Version 1.0.0__
+compatible with trahsbin plugin version 1.0.0 and below
+
+!! The problem
+
+If you use JD's very nice [[Plain Revisions|http://j.d.revisions.tiddlyspot.com/]] plugin and also want to use Kookma's very nice [[Trashbin|https://kookma.github.io/TW-Trashbin/]] plugin you have a problem! when a tiddler go in the trash bin, the revisions are not touched, and if you later delete the tiddler from trash, you will have revisions of non-existing tiddelrs filling up the wiki and a hard time locating these revisions.
+
+!! The solution
+
+The solution is my Trashbin-mod. With this mod, the revision tiddlers will be deleted whenever the corresponding tiddeler is deleted permanently from the trash bin. 
+
+The revisions are not changed nor deleted as long as the corresponding tiddler is in the trash bin. Therefore, if you restore a tiddler from the trash bin, the revisions will still be there.
+
+!!! Features
+
+# When a tiddler is ''permanently'' deleted from the trash (individually or in bulk), the corresponding revisions of these tiddelers are also deleted. 
+# In the trashbin sidebar I added a count items in trash that will appear when the trashbin is not empty. 
+
+!! Install
+
+Drag and drop these tiddlers to your wiki:
+
+* [[$:/plugins/kookma/trashbin/sidebar-tab/v1]]
+* [[$:/plugins/kookma/trashbin/macros/bulk-operation/v1]]
+* [[$:/plugins/kookma/trashbin/trashbin-mod/readme/v1]]
+
+!!! Uninstall
+
+Locate the above tiddlers in your wiki in the [[$:/plugins/kookma/trashbin]] plugin and delete them. This will restore the original settings from the Trashbin plugin.
+
+!! Tip
+
+If you (like me) don't want the sidebar cluttered, you can move the trashbin to the more tab by replacing the `$:/tags/SideBar` tag with `$:/tags/MoreSideBar` tag.
+
+
+!! Issues ?
+Post them at [[github|https://github.com/hchaase/TW-Trashbin-mod/issues]].</pre>
+</div>
 <div created="20190611094730176" modified="20200131140744103" title="$:/SiteSubtitle">
 <pre>Plugins for TW5</pre>
 </div>
 <div created="20190611094702810" modified="20200131140738504" title="$:/SiteTitle">
 <pre>HC plugins</pre>
+</div>
+<div created="20200330125050957" modified="20200330125053367" title="$:/state/edit/references--1208565533">
+<pre>hide</pre>
 </div>
 <div created="20200131141254520" modified="20200131141254520" title="$:/state/edit/references--1866000313">
 <pre>show</pre>
@@ -9517,8 +9768,8 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div created="20200309145412325" creator="HC Haase" description="state for the the count type of the toc_counting macro. level field to choose between clasin and deep level search with kin filter" level="1" modified="20200311095918757" modifier="HC Haase" title="$:/state/plugins/HCHaase/toc_counting/macro/toc_counting">
 <pre>tag</pre>
 </div>
-<div created="20200131142203173" modified="20200311095643994" title="$:/state/showeditpreview">
-<pre>yes</pre>
+<div created="20200131142203173" modified="20200330124703311" title="$:/state/showeditpreview">
+<pre>no</pre>
 </div>
 <div created="20200214145722536" modified="20200214145722536" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Filter</pre>
@@ -9529,8 +9780,8 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div created="20200206111840330" modified="20200311095523291" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Plugins</pre>
 </div>
-<div created="20190611094656338" modified="20200311095749723" title="$:/state/tab/sidebar--595412856">
-<pre>TableOfContents</pre>
+<div created="20190611094656338" modified="20200330124313760" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20200203132243375" modified="20200206121445276" title="$:/state/toc/Plugins-TOC-Generic Introduction--429161835">
 <pre>close</pre>
@@ -9550,7 +9801,7 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div created="20200311095818926" modified="20200311095927414" title="$:/state/toc/TableOfContents/Plugins-TOC-Generic Introduction--118161433">
 <pre>close</pre>
 </div>
-<div list="$:/Import Introduction" title="$:/StoryList">
+<div created="20200330124517451" list="$:/Import $:/plugins/kookma/trashbin/macros/bulk-operation/v1 $:/plugins/kookma/trashbin/sidebar-tab/v1 Introduction Trashbin-mod" modified="20200330125108774" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200214145727451" modified="20200214145727451" title="$:/temp/advancedsearch">
@@ -9597,15 +9848,15 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;file://&quot;
+            &quot;text&quot;: &quot;null&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         }
     }
 }</pre>
@@ -9821,8 +10072,11 @@ drag this link to your wiki: [[$:/plugins/HCHaase/TOCgeneric]]
 
 {{$:/plugins/HCHaase/TOCgeneric/changelog}}</pre>
 </div>
-<div created="20200131142546398" modified="20200131142742300" tags="Plugins" title="Trashbin-mod">
-<pre>see [[https://hchaase.github.io/TW-Trashbin-mod/]]</pre>
+<div created="20200131142546398" modified="20200330125433458" tags="Plugins" title="Trashbin-mod">
+<pre>* version 1.1.0 [[$:/plugins/kookma/trashbin/trashbin-mod/readme]]
+* version 1.0.0: [[$:/plugins/kookma/trashbin/trashbin-mod/readme/v1]]
+
+Original site see [[https://hchaase.github.io/TW-Trashbin-mod/]]</pre>
 </div>
 
 </div>
