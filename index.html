@@ -191,6 +191,8 @@ Error message and password prompt
 
 <li>$:/state/edit/references-1839928243</li>
 
+<li>$:/state/plugin-info--1613430370-$:/plugins/HCHaase/LoginCurtain-mod--1962160907</li>
+
 <li>$:/state/plugin-info--896887961-$:/plugins/HCHaase/LoginCurtain-mod</li>
 
 <li>$:/state/plugin-info--896887961-$:/plugins/HCHaase/LoginCurtain-mod---1113360364</li>
@@ -9260,8 +9262,7 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[capture.PNG]]
-# [[Capture2.PNG]]</pre>
+# [[$:/plugins/HCHaase/LoginCurtain-mod]]</pre>
 </div>
 <div created="20200311094359303" modified="20200311094359903" title="$:/Import!!popup-Untitled">
 <pre>no</pre>
@@ -9269,22 +9270,9 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div author="HC Haase" core-version="5.1.22" created="20200921091340580" creator="HC Haase" description="LoginCurtain-mod" list="readme changelog settings-panel" modified="20200921091352245" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/LoginCurtain-mod" type="application/json" version="1.0.0">
+<div author="HC Haase" core-version="5.1.22" created="20200924073317639" creator="HC Haase" description="LoginCurtain-mod" list="readme changelog settings-panel" modified="20200924074052821" modifier="HC Haase" plugin-type="plugin" title="$:/plugins/HCHaase/LoginCurtain-mod" type="application/json" version="1.1.0">
 <pre>{
     &quot;tiddlers&quot;: {
-        &quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations&quot;: {
-            &quot;created&quot;: &quot;20200702092828494&quot;,
-            &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;text&quot;: &quot;customise text, icons and buttons in fields. available from settings&quot;,
-            &quot;users-top-text&quot;: &quot;Sign in to open the wiki. &lt;br&gt; Existing users&quot;,
-            &quot;users&quot;: &quot;See existing users&quot;,
-            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations&quot;,
-            &quot;tags&quot;: &quot;&quot;,
-            &quot;new-users-top-text&quot;: &quot;Sign in to open the wiki.&quot;,
-            &quot;new-user&quot;: &quot;Guest&quot;,
-            &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200915073215857&quot;
-        },
         &quot;$:/plugins/HCHaase/LoginCurtain-mod/SplashScreen&quot;: {
             &quot;created&quot;: &quot;20180927082601825&quot;,
             &quot;creator&quot;: &quot;JJ&quot;,
@@ -9313,15 +9301,6 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
             &quot;modifier&quot;: &quot;HC Haase&quot;,
             &quot;modified&quot;: &quot;20200915073606909&quot;
         },
-        &quot;$:/plugins/HCHaase/LoginCurtain-mod/Template&quot;: {
-            &quot;created&quot;: &quot;20200329162427237&quot;,
-            &quot;creator&quot;: &quot;gggg&quot;,
-            &quot;text&quot;: &quot;\\define defaultLogin() \n&lt;div class=\&quot;login-overlay\&quot;&gt;\n&lt;$button  class=\&quot;tc-btn-invisible\&quot; style=\&quot;font-size:2.5em; color:grey;fill:grey\&quot;&gt;\n{{$:/plugins/HCHaase/LoginCurtain-mod/UserIcon}}\n&lt;&lt;LogMeIn&gt;&gt;&lt;/$button&gt;&lt;h2&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!new-users-top-text}}&lt;/h2&gt;\n&lt;$keyboard key=\&quot;return\&quot; actions=&lt;&lt;LogMeIn&gt;&gt;&gt;\n&lt;$edit-text tiddler=\&quot;$:/temp/UserName\&quot; default=\&quot;\&quot; focus=\&quot;yes\&quot; tag=\&quot;input\&quot;/&gt;&lt;/$keyboard&gt;  \n&lt;$reveal state=\&quot;$:/temp/UserName\&quot; type=\&quot;match\&quot; text=\&quot;\&quot;&gt;&lt;br&gt;&lt;br&gt;\n&lt;$list filter=\&quot;[tag[$:/tags/invitees]]\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; style=\&quot;fill:grey;color:grey;\&quot;&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/temp/Logintiddler\&quot; text={{!!title}}/&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!users}}\n&lt;/$button&gt;&lt;/$list&gt;&lt;/$reveal&gt;\n&lt;/div&gt;\n\\end\n\n\\define LogMeIn() \n&lt;$action-setfield $tiddler=\&quot;$:/status/UserName\&quot; text={{$:/temp/UserName}}/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/UserName\&quot;/&gt;\n\\end\n\n&lt;div class=\&quot;left-panel\&quot;&gt;\n  \n &lt;/div&gt;\n&lt;div class=\&quot;right-panel\&quot;&gt;\n\n&lt;/div&gt;\n&lt;$reveal state=\&quot;$:/status/UserName\&quot; type=\&quot;match\&quot; text=\&quot;\&quot;&gt;\n&lt;br&gt;\n&lt;$list filter=\&quot;[[$:/temp/Logintiddler]has[text]]\&quot; emptyMessage=&lt;&lt;defaultLogin&gt;&gt;&gt;\n&lt;div class=\&quot;login-ex-user\&quot;&gt;\n&lt;$button  class=\&quot;tc-btn-invisible\&quot; style=\&quot;font-size:2.5em; color:grey;fill:grey\&quot;&gt;\n{{$:/plugins/HCHaase/LoginCurtain-mod/UserIcon}}\n&lt;&lt;LogMeIn&gt;&gt;&lt;/$button&gt;&lt;br&gt;\n&lt;h2&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!users-top-text}}&lt;/h2&gt;&lt;br&gt;\n&lt;$transclude tiddler={{$:/temp/Logintiddler}}/&gt;&lt;br&gt;\n&lt;$button  class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; style=\&quot;fill:grey;color:grey;\&quot;&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/Logintiddler\&quot; $text={{!!title}}/&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!new-user}}\n&lt;/$button&gt;\n&lt;/div&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/Template&quot;,
-            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
-            &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200915073713082&quot;
-        },
         &quot;$:/plugins/HCHaase/LoginCurtain-mod/template/new-user&quot;: {
             &quot;created&quot;: &quot;20200902071354168&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
@@ -9340,43 +9319,76 @@ NB: if you want no link, but at tooltip, use `&quot;&quot;` for a empty link.
             &quot;modifier&quot;: &quot;HC Haase&quot;,
             &quot;modified&quot;: &quot;20200915073805134&quot;
         },
-        &quot;$:/plugins/HCHaase/LoginCurtain-mod/changelog&quot;: {
-            &quot;created&quot;: &quot;20200903091856065&quot;,
+        &quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations&quot;: {
+            &quot;text&quot;: &quot;customise text, icons and buttons in fields. available from settings&quot;,
+            &quot;users-top-text&quot;: &quot;Sign in to open the wiki. &lt;br&gt; Existing users&quot;,
+            &quot;users&quot;: &quot;See existing users&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations&quot;,
+            &quot;timestamps-function&quot;: &quot;&lt;$action-setfield $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/login-log\&quot; $index=&lt;&lt;now YYYY-0MM-0DD-hh.0mm.0ss&gt;&gt; $value={{$:/status/UserName}}/&gt;&quot;,
+            &quot;timestamps&quot;: &quot;&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;new-users-top-text&quot;: &quot;Sign in to open the wiki.&quot;,
+            &quot;new-user&quot;: &quot;Guest&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;,
+            &quot;modified&quot;: &quot;20200924072044125&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;text&quot;: &quot;I'm trying to follow the rules of [[Semantic Versioning|https://semver.org/]].\n\n\n v. 1.0.0\n\nThe point of departure will be Jan's Login Curtain plugin. I will try to describe:\n\n# what I have changed\n# what I have modified ( in tidderls)\n# what I have added\n\n-\n\n* [change] name from $:/plugins/JJ/LoginCurtain/.. to $:/plugins/HCHaase/LoginCurtain-mod/..\n* [change] tiddler name:[[ ../styleshheet]] to [[../stylesheet]]\n\n\n\n* [modified] modified tiddlers:\n**  [[..WelcomeButton]]\n*** changed variable `ACTOR` to `user`\n*** only kept the list showing tiddlers with the tag `user`\n** [[..stylesheet]] (former [[..styleshheet]])\n*** removed the red drapes effect\n*** added a class for picking existing users ( .login-ex-user)\n*** set to follow the theme colours\n*** minor changes of the .login-overlay class\n**[[..Template]]\n*** added headline text (for new and existing users)\n*** added style for existing user interface ( .login-ex-user)\n**[[..SplashScreen]]\n*** removed the ASCII image and set a short message instead.\n\n* [New] added tiddlers:\n** $:/plugins/HCHaase/LoginCurtain-mod/changelog\n** $:/plugins/HCHaase/LoginCurtain-mod/readme\n** $:/plugins/HCHaase/LoginCurtain-mod/settings-panel\n***appear in `control panel/info/`\n** gives option to 1. delete user, 2. make a new user from template and 3. change text of interface\n** $:/plugins/HCHaase/LoginCurtain-mod/template/new-user\n*** template for new users: have [tag[user]] and in text conditional lists of of created and modified (if any) tiddlers of that user.\n** $:/plugins/HCHaase/LoginCurtain-mod/customisations\n*** placeholder of texts and buttons on the interface. used in the settings-panel\n&quot;,
+            &quot;created&quot;: &quot;20200702092828494&quot;
+        },
+        &quot;$:/plugins/HCHaase/LoginCurtain-mod/login-log&quot;: {
+            &quot;text&quot;: &quot;&quot;,
+            &quot;type&quot;: &quot;application/x-tiddler-dictionary&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/login-log&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;,
+            &quot;modified&quot;: &quot;20200924073628235&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;created&quot;: &quot;20200922065708963&quot;
+        },
+        &quot;$:/plugins/HCHaase/LoginCurtain-mod/settings-panel&quot;: {
+            &quot;text&quot;: &quot;\\define welcomeButton()\n&lt;$action-createtiddler $basetitle=\&quot;test\&quot; $overwrite=\&quot;yes\&quot;/&gt;\n\\end\n\n!! User Management\n\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton!!activated\&quot; text=\&quot;yes\&quot;&gt;\n&lt;$button&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton\&quot; text={{$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton!!text}}/&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton\&quot; activated=\&quot;yes\&quot;/&gt;\n&lt;$action-listops $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton\&quot; $tags=\&quot;+[append[$:/tags/invitees]]\&quot;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-save-wiki\&quot; /&gt;\nActivate permanent users\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton!!activated\&quot; text=\&quot;yes\&quot;&gt;\n\nThese are the current  permanent users of the wiki. To make a new user, tag a tiddler with the tag `user` or press the button new user below.\n\nPermanent users:\n\n&lt;$list filter=\&quot;[tag[user]!prefix[$]]\&quot; emptyMessage=\&quot;No users are registered. press the button `New User` to make one.\&quot;&gt;\n\n* &lt;$link&gt;{{!!title}}&lt;/$link&gt; &lt;$button&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;\nDelete \n&lt;/$button&gt;\n\n&lt;/$list&gt;\n\n\n&lt;$button \ntooltip=\&quot;New user\&quot; \nmessage=\&quot;tm-new-tiddler\&quot; \ntitle=\&quot;New User\&quot; \nparam=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/template/new-user\&quot; \n&gt;\n&lt;&lt;welcomeButton&gt;&gt;\nNew User\n&lt;/$button&gt;\n\n&lt;/$reveal&gt;\n\n!! Customisations\n\n&lt;$checkbox tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;timestamps\&quot; checked=\&quot;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!timestamps-function}}\&quot; unchecked=\&quot;\&quot; default=\&quot;\&quot;&gt; \nEnable [[timestamps of wiki unlock's|$:/plugins/HCHaase/LoginCurtain-mod/login-log]]\n&lt;/$checkbox&gt;\n\n\nHere You can change the name of buttons and texts.\n\nwelcome text for new users: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;new-users-top-text\&quot; default=\&quot;Sign in to open the wiki.\&quot;/&gt;\n\nwelcome text for existing users: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;users-top-text\&quot; default=\&quot;Sign in to open the wiki. &lt;br&gt; Existing users\&quot;/&gt;  \n\n\nButton: Go to existing user: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;users\&quot; default=\&quot;See existing users\&quot;/&gt; \n\nButton: Go to user input/new user: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;new-user\&quot; default=\&quot;Guest\&quot;/&gt; \n\n\nIf you want to change the login icon you can modify [[$:/plugins/HCHaase/LoginCurtain-mod/UserIcon]].\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/settings-panel&quot;,
+            &quot;tags&quot;: &quot;$:/tags/ControlPanel/Info&quot;,
+            &quot;modifier&quot;: &quot;user1&quot;,
+            &quot;modified&quot;: &quot;20200924071159953&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;created&quot;: &quot;20200831074619659&quot;,
+            &quot;caption&quot;: &quot;login-settings&quot;
+        },
+        &quot;$:/plugins/HCHaase/LoginCurtain-mod/Template&quot;: {
+            &quot;text&quot;: &quot;\\define defaultLogin() \n&lt;div class=\&quot;login-overlay\&quot;&gt;\n&lt;$button  class=\&quot;tc-btn-invisible\&quot; style=\&quot;font-size:2.5em; color:grey;fill:grey\&quot;&gt;\n{{$:/plugins/HCHaase/LoginCurtain-mod/UserIcon}}\n&lt;&lt;LogMeIn&gt;&gt;&lt;/$button&gt;&lt;h2&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!new-users-top-text}}&lt;/h2&gt;\n&lt;$keyboard key=\&quot;return\&quot; actions=&lt;&lt;LogMeIn&gt;&gt;&gt;\n&lt;$edit-text tiddler=\&quot;$:/temp/UserName\&quot; default=\&quot;\&quot; focus=\&quot;yes\&quot; tag=\&quot;input\&quot;/&gt;&lt;/$keyboard&gt;  \n&lt;$reveal state=\&quot;$:/temp/UserName\&quot; type=\&quot;match\&quot; text=\&quot;\&quot;&gt;&lt;br&gt;&lt;br&gt;\n&lt;$list filter=\&quot;[tag[$:/tags/invitees]]\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; style=\&quot;fill:grey;color:grey;\&quot;&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/temp/Logintiddler\&quot; text={{!!title}}/&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!users}}\n&lt;/$button&gt;&lt;/$list&gt;&lt;/$reveal&gt;\n&lt;/div&gt;\n\\end\n\n\\define LogMeIn() \n&lt;$action-setfield $tiddler=\&quot;$:/status/UserName\&quot; text={{$:/temp/UserName}}/&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/UserName\&quot;/&gt;\n{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!timestamps}}\n\n\\end\n\n&lt;div class=\&quot;left-panel\&quot;&gt;\n  \n &lt;/div&gt;\n&lt;div class=\&quot;right-panel\&quot;&gt;\n\n&lt;/div&gt;\n&lt;$reveal state=\&quot;$:/status/UserName\&quot; type=\&quot;match\&quot; text=\&quot;\&quot;&gt;\n&lt;br&gt;\n&lt;$list filter=\&quot;[[$:/temp/Logintiddler]has[text]]\&quot; emptyMessage=&lt;&lt;defaultLogin&gt;&gt;&gt;\n&lt;div class=\&quot;login-ex-user\&quot;&gt;\n&lt;$button  class=\&quot;tc-btn-invisible\&quot; style=\&quot;font-size:2.5em; color:grey;fill:grey\&quot;&gt;\n{{$:/plugins/HCHaase/LoginCurtain-mod/UserIcon}}\n&lt;&lt;LogMeIn&gt;&gt;&lt;/$button&gt;&lt;br&gt;\n&lt;h2&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!users-top-text}}&lt;/h2&gt;&lt;br&gt;\n&lt;$transclude tiddler={{$:/temp/Logintiddler}}/&gt;&lt;br&gt;\n&lt;$button  class=\&quot;tc-btn-invisible tc-tiddlylink\&quot; style=\&quot;fill:grey;color:grey;\&quot;&gt;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/temp/Logintiddler\&quot; $text={{!!title}}/&gt;{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!new-user}}\n&lt;/$button&gt;\n&lt;/div&gt;\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/Template&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
+            &quot;modifier&quot;: &quot;user1&quot;,
+            &quot;modified&quot;: &quot;20200924071110707&quot;,
+            &quot;creator&quot;: &quot;gggg&quot;,
+            &quot;created&quot;: &quot;20200329162427237&quot;
+        },
+        &quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton&quot;: {
+            &quot;text&quot;: &quot;&lt;$list filter=\&quot;[tag[user]!prefix[$]]\&quot; variable=\&quot;user\&quot;&gt;\n\n&lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;\n__&lt;&lt;user&gt;&gt;__&lt;$action-setfield $tiddler=\&quot;$:/status/UserName\&quot;  text=&lt;&lt;user&gt;&gt;/&gt;\n{{$:/plugins/HCHaase/LoginCurtain-mod/customisations!!timestamps}}\n\n\n&lt;/$button&gt;\n&lt;/$list&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton&quot;,
+            &quot;tags&quot;: &quot;$:/tags/invitees&quot;,
+            &quot;modifier&quot;: &quot;HC Haase&quot;,
+            &quot;modified&quot;: &quot;20200924073938715&quot;,
+            &quot;icon&quot;: &quot;&amp;#9733;&quot;,
+            &quot;creator&quot;: &quot;JR&quot;,
+            &quot;created&quot;: &quot;20180314143122385&quot;
+        },
+        &quot;$:/plugins/HCHaase/LoginCurtain-mod/changelog&quot;: {
+            &quot;text&quot;: &quot;I'm trying to follow the rules of [[Semantic Versioning|https://semver.org/]].\n\nv1.1.0\n\n* [new] added log of when/by who the wiki is opened. enable it in settings-panel.\n\n v. 1.0.0\n\nThe point of departure will be Jan's Login Curtain plugin. I will try to describe:\n\n# what I have changed\n# what I have modified ( in tidderls)\n# what I have added\n\n-\n\n* [change] name from $:/plugins/JJ/LoginCurtain/.. to $:/plugins/HCHaase/LoginCurtain-mod/..\n* [change] tiddler name:[[ ../styleshheet]] to [[../stylesheet]]\n\n\n\n* [modified] modified tiddlers:\n**  [[..WelcomeButton]]\n*** changed variable `ACTOR` to `user`\n*** only kept the list showing tiddlers with the tag `user`\n** [[..stylesheet]] (former [[..styleshheet]])\n*** removed the red drapes effect\n*** added a class for picking existing users ( .login-ex-user)\n*** set to follow the theme colours\n*** minor changes of the .login-overlay class\n**[[..Template]]\n*** added headline text (for new and existing users)\n*** added style for existing user interface ( .login-ex-user)\n**[[..SplashScreen]]\n*** removed the ASCII image and set a short message instead.\n\n* [New] added tiddlers:\n** $:/plugins/HCHaase/LoginCurtain-mod/changelog\n** $:/plugins/HCHaase/LoginCurtain-mod/readme\n** $:/plugins/HCHaase/LoginCurtain-mod/settings-panel\n***appear in `control panel/info/`\n** gives option to 1. delete user, 2. make a new user from template and 3. change text of interface\n** $:/plugins/HCHaase/LoginCurtain-mod/template/new-user\n*** template for new users: have [tag[user]] and in text conditional lists of of created and modified (if any) tiddlers of that user.\n** $:/plugins/HCHaase/LoginCurtain-mod/customisations\n*** placeholder of texts and buttons on the interface. used in the settings-panel\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/changelog&quot;,
             &quot;tags&quot;: &quot;&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200921085533305&quot;
+            &quot;modified&quot;: &quot;20200924072758314&quot;,
+            &quot;creator&quot;: &quot;HC Haase&quot;,
+            &quot;created&quot;: &quot;20200903091856065&quot;
         },
         &quot;$:/plugins/HCHaase/LoginCurtain-mod/readme&quot;: {
-            &quot;created&quot;: &quot;20200902081807345&quot;,
-            &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;text&quot;: &quot;\n\nThis is my mod of the Login Curtain plugin by Jan (JJ). Jan made a quite cool plugin but I wanted to tweak the appearance to give it a professional look.\n\n!!What this plugin (the mod) do\n\n# Lock the wiki (blocking the UI) until a username is entered.\n## Note that there is no password nor encryption of the wiki, so anybody can enter any name. see this as a reminder not a lock.\n#present a interface for picking a pre-made user.\n# provide a user management tab in Control Panel/Info/login-settings.\n# a button to create a user tiddler that also show what tiddlers the user has made or modified.\n# customisations of buttons, text and icons in Control Panel/Info/login-settings.\n\n!! How to\n\n!!! Activate permanent users\nGo to  [[Control Panel/Info/login-settings|$:/ControlPanel]] and press the button `Activate permanent users`.\n\n!!! Add new user\nGo to  [[Control Panel/Info/login-settings|$:/ControlPanel]] and press the button `new user` and rename that tiddler to the desired username. \n\nAlternatively you can give any tiddler the tag `user` and the title will be used as the username.\n\n!!! Remove a user or wrong username\n\nGo to  [[Control Panel/Info/login-settings|$:/ControlPanel]] and press the button `delete user`. ''This will delete the user tiddler'' so be careful not to have data in that tiddler you want to save.\n\nAlternatively you can locate the tiddler you want to remove from users and delete the tag `user`. This will keep the tiddler in the wiki but remove it from the users list.\n\n!!! Exclusions\nsystem tiddlers (prefixed with `$:/`) are excluded from the users list and can't be used as usernames.\n\n!! what is the mod what is the original\n\nFor a more detailed list of changes see the [[Changelog|$:/plugins/HCHaase/LoginCurtain-mod/changelog]].\n\nJan made a realy cool plugin that presented the log-in prompt and some red drapes that disappear and reveal the wiki when the user enter a username. \n\nBig thanks to Jan for making this and for making a detailed guide of how to tweak it.\n\nI wanted to tweak the appearance to give it a professional look so this mod just use a neutral lock screen. I found some unfinished thing for actor (user) and build on that to make a pick dialogue for existing users.\n\nThis mod ad\n\n# modified login background\n#present a interface for picking a pre-made user.\n# provide a user management tab in Control Panel/Info/login-settings.\n# a button to create a user tiddler that also show what tiddlers the user has made or modified.\n# customisations of buttons, text and icons in Control Panel/Info/login-settings.\n&quot;,
+            &quot;text&quot;: &quot;This is my mod of the Login Curtain plugin by Jan (JJ). Jan made a quite cool plugin but I wanted to tweak the appearance to give it a professional look.\n\n!!What this plugin (the mod) do\n\n# Lock the wiki (blocking the UI) until a username is entered.\n## Note that there is no password nor encryption of the wiki, so anybody can enter any name. see this as a reminder not a lock.\n#present a interface for picking a pre-made user.\n# provide a user management tab in Control Panel/Info/login-settings.\n# a button to create a user tiddler that also show what tiddlers the user has made or modified.\n# customisation of buttons, text and icons in Control Panel/Info/login-settings.\n# adds a log of when/by who the wiki is opened. enable it in settings-panel. (is this useful for anything, as you can type any username?? idk)\n\n\n!! How to\n\n!!! Activate permanent users\nGo to  [[Control Panel/Info/login-settings|$:/ControlPanel]] and press the button `Activate permanent users`.\n\n!!! Add new user\nGo to  [[Control Panel/Info/login-settings|$:/ControlPanel]] and press the button `new user` and rename that tiddler to the desired username. \n\nAlternatively you can give any tiddler the tag `user` and the title will be used as the username.\n\n!!! Remove a user or wrong username\n\nGo to  [[Control Panel/Info/login-settings|$:/ControlPanel]] and press the button `delete user`. ''This will delete the user tiddler'' so be careful not to have data in that tiddler you want to save.\n\nAlternatively you can locate the tiddler you want to remove from users and delete the tag `user`. This will keep the tiddler in the wiki but remove it from the users list.\n\n!!! Exclusions\nsystem tiddlers (prefixed with `$:/`) are excluded from the users list and can't be used as usernames.\n\n!! what is the mod what is the original\n\nFor a more detailed list of changes see the [[Changelog|$:/plugins/HCHaase/LoginCurtain-mod/changelog]].\n\nJan made a relay cool plugin that presented the log-in prompt and some red drapes that disappear and reveal the wiki when the user enter a username. \n\nBig thanks to Jan for making this and for making a detailed guide of how to tweak it.\n\nI wanted to tweak the appearance to give it a professional look so this mod just use a neutral lock screen. I found some unfinished thing for actor (user) and build on that to make a pick dialogue for existing users.\n\nThis mod ad\n\n# modified login background\n#present a interface for picking a pre-made user.\n# provide a user management tab in Control Panel/Info/login-settings.\n# a button to create a user tiddler that also show what tiddlers the user has made or modified.\n# customisation of buttons, text and icons in Control Panel/Info/login-settings.\n# adds a log of when/by who the wiki is opened. enable it in settings-panel. (is this useful for anything, as you can type any username?? idk)\n\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/readme&quot;,
             &quot;tags&quot;: &quot;&quot;,
             &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200921085749883&quot;
-        },
-        &quot;$:/plugins/HCHaase/LoginCurtain-mod/settings-panel&quot;: {
-            &quot;created&quot;: &quot;20200831074619659&quot;,
+            &quot;modified&quot;: &quot;20200924072741536&quot;,
             &quot;creator&quot;: &quot;HC Haase&quot;,
-            &quot;text&quot;: &quot;\\define welcomeButton()\n&lt;$action-createtiddler $basetitle=\&quot;test\&quot; $overwrite=\&quot;yes\&quot;/&gt;\n\\end\n\n!! User Management\n\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton!!activated\&quot; text=\&quot;yes\&quot;&gt;\n&lt;$button&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton\&quot; text={{$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton!!text}}/&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton\&quot; activated=\&quot;yes\&quot;/&gt;\n&lt;$action-listops $tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton\&quot; $tags=\&quot;+[append[$:/tags/invitees]]\&quot;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-save-wiki\&quot; /&gt;\nActivate permanent users\n&lt;/$button&gt;\n&lt;/$reveal&gt;\n\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton!!activated\&quot; text=\&quot;yes\&quot;&gt;\n\nThese are the current  permanent users of the wiki. To make a new user, tag a tiddler with the tag `user` or press the button new user below.\n\nPermanent users:\n\n&lt;$list filter=\&quot;[tag[user]!prefix[$]]\&quot; emptyMessage=\&quot;No users are registered. press the button `New User` to make one.\&quot;&gt;\n\n* &lt;$link&gt;{{!!title}}&lt;/$link&gt; &lt;$button&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;\nDelete \n&lt;/$button&gt;\n\n&lt;/$list&gt;\n\n\n&lt;$button \ntooltip=\&quot;New user\&quot; \nmessage=\&quot;tm-new-tiddler\&quot; \ntitle=\&quot;New User\&quot; \nparam=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/template/new-user\&quot; \n&gt;\n&lt;&lt;welcomeButton&gt;&gt;\nNew User\n&lt;/$button&gt;\n\n&lt;/$reveal&gt;\n\n!! Customisations\n\nHere You can change the name of buttons and texts.\n\nwelcome text for new users: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;new-users-top-text\&quot; default=\&quot;Sign in to open the wiki.\&quot;/&gt;\n\nwelcome text for existing users: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;users-top-text\&quot; default=\&quot;Sign in to open the wiki. &lt;br&gt; Existing users\&quot;/&gt;  \n\n\nButton: Go to existing user: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;users\&quot; default=\&quot;See existing users\&quot;/&gt; \n\nButton: Go to user input/new user: \n\n&lt;$edit-text tiddler=\&quot;$:/plugins/HCHaase/LoginCurtain-mod/customisations\&quot; field=\&quot;new-user\&quot; default=\&quot;Guest\&quot;/&gt; \n\n\nIf you want to change the login icon you can modify [[$:/plugins/HCHaase/LoginCurtain-mod/UserIcon]].\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/settings-panel&quot;,
-            &quot;tags&quot;: &quot;$:/tags/ControlPanel/Info&quot;,
-            &quot;modifier&quot;: &quot;HC Haase&quot;,
-            &quot;modified&quot;: &quot;20200921085837102&quot;,
-            &quot;caption&quot;: &quot;login-settings&quot;
-        },
-        &quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton&quot;: {
-            &quot;created&quot;: &quot;20180314143122385&quot;,
-            &quot;creator&quot;: &quot;JR&quot;,
-            &quot;text&quot;: &quot;&lt;$list filter=\&quot;[tag[user]!prefix[$]]\&quot; variable=\&quot;user\&quot;&gt;\n\n&lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;\n__&lt;&lt;user&gt;&gt;__&lt;$action-setfield $tiddler=\&quot;$:/status/UserName\&quot;  text=&lt;&lt;user&gt;&gt;/&gt;\n\n&lt;/$button&gt;\n&lt;/$list&gt;&quot;,
-            &quot;title&quot;: &quot;$:/plugins/HCHaase/LoginCurtain-mod/WelcomeButton&quot;,
-            &quot;tags&quot;: &quot;$:/tags/invitees&quot;,
-            &quot;modifier&quot;: &quot;test&quot;,
-            &quot;modified&quot;: &quot;20200921090227660&quot;,
-            &quot;icon&quot;: &quot;&amp;#9733;&quot;
+            &quot;created&quot;: &quot;20200902081807345&quot;
         }
     }
 }</pre>
@@ -9917,6 +9929,9 @@ Post them at [[github|https://github.com/hchaase/TW-Trashbin-mod/issues]].</pre>
 <div created="20200131142741066" modified="20200131142741066" title="$:/state/edit/references-1839928243">
 <pre>show</pre>
 </div>
+<div created="20200928074451048" creator="hchaase" modified="20200928074613850" modifier="hchaase" title="$:/state/plugin-info--1613430370-$:/plugins/HCHaase/LoginCurtain-mod--1962160907">
+<pre>contents</pre>
+</div>
 <div created="20200921092239339" creator="hc" modified="20200921092239339" modifier="hc" title="$:/state/plugin-info--896887961-$:/plugins/HCHaase/LoginCurtain-mod">
 <pre>yes</pre>
 </div>
@@ -9996,7 +10011,7 @@ Post them at [[github|https://github.com/hchaase/TW-Trashbin-mod/issues]].</pre>
 <div created="20200921092409964" modified="20200921092409964" title="$:/status/UserName">
 <pre>hchaase</pre>
 </div>
-<div list="Introduction" title="$:/StoryList">
+<div created="20200928074412496" creator="hchaase" list="Introduction [[LoginCurtain-mod Introduction]] $:/plugins/HCHaase/LoginCurtain-mod" modified="20200928074615273" modifier="hchaase" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200214145727451" modified="20200214145727451" title="$:/temp/advancedsearch">
@@ -10182,24 +10197,23 @@ Tagged with //Plugins// (&lt;$count filter='[tagPlugins]'/&gt;)
 
 </pre>
 </div>
-<div created="20200921091542327" creator="hc" modified="20200922072459570" modifier="hchaase" tags="Plugins" title="LoginCurtain-mod Introduction">
+<div created="20200921091542327" creator="hc" modified="20200928075156314" modifier="hchaase" tags="Plugins" title="LoginCurtain-mod Introduction">
 <pre>This plugin is for multi user wikis. It adds a prompt to force users to type a username before the wiki is functional.
 
 This is my mod of the Login Curtain plugin by Jan (JJ). Jan made a quite cool plugin but I wanted to tweak the appearance to give it a professional look.
 
 
-NB: The plugin is disabled in this wiki, but you can download this wiki and activate it under Control Panel/plugins, if you want to try it out.
+''NB'': The plugin is disabled in this wiki, but you can download this wiki and activate it under Control Panel/plugins, if you want to try it out.
 
 !! Download
 * Drag[[ this|$:/plugins/HCHaase/LoginCurtain-mod]] to your wiki. latest version {{$:/plugins/HCHaase/LoginCurtain-mod!!version}}.
 
 
 !! Feedback
-please add feedback /bugs in the threat in [[TW google groups|https://groups.google.com/forum/#!topic/TiddlyWiki/o6z8ig9a3bI]].
+please add feedback /bugs in the threat in [[TW google groups|https://groups.google.com/g/tiddlywiki/c/LhCra4S39as]].
 
 
 !! Readme
-
 
 This is my mod of the Login Curtain plugin by Jan (JJ). Jan made a quite cool plugin but I wanted to tweak the appearance to give it a professional look.
 
@@ -10210,7 +10224,9 @@ This is my mod of the Login Curtain plugin by Jan (JJ). Jan made a quite cool pl
 #present a interface for picking a pre-made user.
 # provide a user management tab in Control Panel/Info/login-settings.
 # a button to create a user tiddler that also show what tiddlers the user has made or modified.
-# customisations of buttons, text and icons in Control Panel/Info/login-settings.
+# customisation of buttons, text and icons in Control Panel/Info/login-settings.
+# adds a log of when/by who the wiki is opened. enable it in settings-panel. (is this useful for anything, as you can type any username?? idk)
+
 
 !! How to
 
@@ -10235,19 +10251,22 @@ system tiddlers (prefixed with `$:/`) are excluded from the users list and can't
 
 For a more detailed list of changes see the [[Changelog|$:/plugins/HCHaase/LoginCurtain-mod/changelog]].
 
-Jan made a realy cool plugin that presented the log-in prompt and some red drapes that disappear and reveal the wiki when the user enter a username. 
+Jan made a relay cool plugin that presented the log-in prompt and some red drapes that disappear and reveal the wiki when the user enter a username. 
 
 Big thanks to Jan for making this and for making a detailed guide of how to tweak it.
 
 I wanted to tweak the appearance to give it a professional look so this mod just use a neutral lock screen. I found some unfinished thing for actor (user) and build on that to make a pick dialogue for existing users.
 
-This mod ad
+This mod add:
 
 # modified login background
 #present a interface for picking a pre-made user.
 # provide a user management tab in Control Panel/Info/login-settings.
 # a button to create a user tiddler that also show what tiddlers the user has made or modified.
-# customisations of buttons, text and icons in Control Panel/Info/login-settings.
+# customisation of buttons, text and icons in Control Panel/Info/login-settings.
+# adds a log of when/by who the wiki is opened. enable it in settings-panel. (is this useful for anything, as you can type any username?? idk)
+
+
 
 !! Screen shots
 
@@ -10259,6 +10278,9 @@ This mod ad
 
 I'm trying to follow the rules of [[Semantic Versioning|https://semver.org/]].
 
+v1.1.0
+
+* [new] added log of when/by who the wiki is opened. enable it in settings-panel.
 
  v. 1.0.0
 
